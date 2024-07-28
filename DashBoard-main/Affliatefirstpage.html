@@ -82,7 +82,7 @@ function payWithPaystack(user) {
                 paymentStatus: 'paid',
                 // Include any other user data you have
             }).then(() => {
-                window.location.href = 'AffiliateIndex.html'; // Redirect to the affiliate dashboard
+                window.location.href = 'AffliateIndex.html'; // Redirect to the affiliate dashboard
             }).catch((error) => {
                 console.error('Error updating payment status:', error);
             });
