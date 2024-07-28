@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="stylesheet" href="Styles/index.css" />
+    <link rel="stylesheet" href="styleone.css">
+    <link rel="stylesheet" href="styletwo.css">
+    <link rel="stylesheet" href="stylethree.css">
+  </head>
+  <body>
+    <header>
+      <img src="bookit-logo-img.png" width="130px" height="100px">
+      <div class="right-section">
+        <!-- NOTIFICATION ICON -->
+        <button type="button" style="border: white !important;" class="flex rounded-full" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown1" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <div class="note-cont">
+          <i class="fa-solid fa-bell fa-shake" aria-hidden="true"></i>
+          <span class="dot"></span>
+        </div>
+      </button>
+      <!-- Dropdown menu -->
+      <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown1">
+        <div class="px-4 py-3">
+          <div id="toast-warning" class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-700 dark:text-blue-200">
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"/>
+              </svg>
+              <span class="sr-only">Warning icon</span>
+            </div>
+            <div class="ms-3 text-sm font-normal">You just had a new referral.</div>
+            <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-warning" aria-label="Close">
+              <span class="sr-only">Close</span>
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+        <!-- USER ICON -->
+        <button type="button" style="border: white !important;" class="flex rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <div class="note-cont">
+        <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+      </div>
+        <!-- <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" style="border: white !important;" width="70" height="70"> -->
+      </button>
+      <!-- Dropdown menu -->
+      <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+        <div class="px-4 py-3">
+          
+        </div>
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+          </li>
+        </ul>
+      </div>
+
+        <!-- NAVBAR ICON -->
+        <button type="button" style="border: white !important;" class="d-block d-md-block d-lg-none flex" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown2" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <div class="note-cont" style="margin-bottom: 3px;">
+        <img src="app (1).png" alt="" />
+      </div>
+    </button>
+    <!-- Dropdown menu -->
+      <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown2">
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Performance&nbsp;Metrics</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Affiliate</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </header>
+    <main class="d-flex justify-content-center">
+      <div class="side-section d-none d-lg-block">
+        <div class="links">
+          <img src="home (2).png" alt="" />
+          <span>Dashboard</span>
+        </div>
+        <div class="links">
+          <img src="kpi.png" alt="" />
+          <span>Performance&nbsp;Metrics</span>
+        </div>
+        <div class="links">
+          <img src="affiliare-marketing.png" alt="" />
+          <span>Affiliate</span>
+        </div>
+      </div>
+      <div class="main-section">
+        <div class="top-container">
+          <div class="block-1 col">
+            <div class="title">Available Balance</div>
+            <div class="container my-5">
+       
+         <div class="d-flex justify-content-center container text-white mt-5">
+        <div class="aflt-card p-2 px-3 py-2">
+            <div class="d-flex justify-content-between align-items-center">
+                <img class="" src="./logo.png" width="130" style="margin-top: -20px;">
+
+                <img src="./1000062396-removebg-preview.png"  style="height: 245px; width: 100.6%; position: absolute; top: 0; left: 0; border-top-width: -1px; margin-top: -17px; margin-left: 18px;" class="bookitlogo">
+            </div>
+
+            <div class="d-flex flex-column" style="font-weight: bold; font-size: 20px;">
+                <span class="card-light" style="color: white; font-size: 12px; font-weight: lighter;">Current Balance</span>
+                <div class="d-flex align-items-center">
+                    <span id="balance" style="margin-right: 10px;">NGN 0</span>
+                    <i id="toggle-icon" class="fa fa-eye" onclick="toggleBalance()"></i>
+                </div>
+
+            </div>
+            <!-- <div class="d-flex flex-column" style="font-weight: bold; font-size: 20px;">
+                <span class="card-light" style="color: white; font-size: 12px; font-weight: lighter;">Referrals:</span>
+                <div class="d-flex align-items-center">
+                  <p id="referralCount">0</p>
+                </div>
+
+            </div> -->
+
+            <div class="d-flex justify-content-between card-details mt-3 mb-3">
+              <div class="d-flex flex-column">
+                  <span class="card-light">Card Holder</span>
+                  <span id="userName" style="font-size: 13px;"></span>
+              </div>
+              <div class="d-flex flex-column" style="padding-right: 120px; margin-left: 5px;">
+                  <span class="card-light">Phone Number</span>
+                  <span id="userPhone" style="font-size: 13px;"></span>
+              </div>
+          </div>
+        </div>
+    </div>
+         <div class="aflt-section d-block d-md-block d-lg-none">
+         <div class="aflt-tw-flex">
+                <button class="aflt-fund-btn" style="height: 50px; font-size: 13px;">Top Up Wallet&nbsp;<i class="fa-solid fa-credit-card"></i></button>
+                <button class="aflt-fund-btn" style="height: 50px; font-size: 13px;"  id="withdrawButton">Withdraw Funds&nbsp;<i class="fa-solid fa-wallet"></i></button>
+            </div>
+          </div>
+          <div class="copy-container justify-content-center">
+            <p class="copytitle">Share your affiliate link</p>
+            <div class="affiliate-link">
+                <input id="affiliateLink" type="text" readonly>
+                <button id="copyButton">Copy Link</button>
+            </div>
+            <div class="social-icons">
+                <i id="telegram" class="fa-brands fa-telegram"></i>
+                <i id="whatsapp" class="fa-brands fa-whatsapp"></i>
+                <i id="instagram" class="fa-brands fa-instagram"></i>
+            </div>
+        </div>
+        
+    </div>
+          </div>
+          <div class="block-2 d-none d-lg-block">
+            <div class="content">
+              <h3>Transfer funds into your BookIt wallet here</h3>
+              <div class="plus"><span>+</span>Top up</div>
+            </div>
+          </div>
+        </div>
+        <div class="second-container">
+          <div class="block-1 d-none d-lg-block">
+            <div class="graph-container">
+        <div class="title">
+              <h3>Performance Metrics</h3>
+              <span>Tap any card to see details</span>
+            </div>
+        <div class="btn-group mb-3" role="group">
+            <button type="button" class="btn btn-outline-secondary">1h</button>
+            <button type="button" class="btn btn-outline-secondary active">1d</button>
+            <button type="button" class="btn btn-outline-secondary">7d</button>
+            <button type="button" class="btn btn-outline-secondary">1m</button>
+            <button type="button" class="btn btn-outline-secondary">1y</button>
+        </div>
+        <div class="graph rounded border">
+          <canvas id="myChart"></canvas>
+            <div class="tooltip" id="tooltip"></div>
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+            <span>05/24</span>
+            <span>10/24</span>
+            <span>15/24</span>
+            <span>20/24</span>
+            <span>25/24</span>
+            <span>30/24</span>
+        </div>
+    </div>
+            <!-- <img src="Screenshot 2024-07-10 125001.png" alt="" /> -->
+          </div>
+          <div class="block-2 d-none d-lg-block">
+            <div class="title">
+              <h3>Performance Metrics</h3>
+              <span>Tap any card to see details</span>
+            </div>
+            <div class="contents">
+              <div class="content">
+                <img src="bar-chart.png" alt="" />
+                <h4>Performance Metrics</h4>
+                <span>Check out metrics</span>
+              </div>
+              <div class="content">
+                <img src="research-paper.png" alt="" />
+                <h4>Income Overview</h4>
+                <span>from last month</span>
+              </div>
+              <div class="content">
+                <img src="history.png" alt="" />
+                <h4>Payout History</h4>
+                <span>past payout dates</span>
+              </div>
+              <div class="content">
+                <img src="file.png" alt="" />
+                <h4>Performance Report</h4>
+                <span>from last month</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+            <div class="affliate-header">Performance Metrics</div>
+            <p class="aflt-subheader">Tap any card to see metric details</p>
+            <div class="aflt-">
+                <div class="aflt-metrics" style="gap: 12px; width: 100%;">
+                    <div class="aflt-metric" style="box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.2); border-radius: 4px; cursor: pointer;">
+                      <a href="">
+                        <img src="../assets/affliate dashboard/metric1.svg" alt="">
+                        <div class="aflt-inheader">Performance Metrics</div>
+                        <div class="alft-green"></div>
+                        <p class="alft-insubheader">Check out metrics</p>
+                      </a>
+                    </div>
+                    <div class="aflt-metric" style="box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.2); border-radius: 4px; cursor: pointer;">
+                      <a href="">
+                        <img src="../assets/affliate dashboard/metric2.svg" alt="">
+                        <div class="aflt-inheader">Income Overview</div>
+                        <div class="alft-green" id="referralCount">+2.2% increase</div>
+                        <p class="alft-insubheader">from last month</p>
+                      </a>
+                    </div>
+                    <div class="aflt-metric" style="box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.2); border-radius: 4px; cursor: pointer;">
+                      <a href="../Dashboard-details/AffliatePayouts.html">
+                        <img src="../assets/affliate dashboard/metric3.svg" alt="">
+                        <div class="aflt-inheader">Payout History</div>
+                        <div class="alft-green"></div>
+                        <p class="alft-insubheader">past payout dates</p>
+                      </a>
+                    </div>
+                    <div class="aflt-metric" style="box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.2); border-radius: 4px; cursor: pointer;">
+                      <a href="../Dashboard-details/AffliateReports1.html">
+                        <img src="../assets/affliate dashboard/metric4.svg" alt="">
+                        <div class="aflt-inheader">Performance Reports</div>
+                        <div class="alft-green">+2.2% increase</div>
+                        <p class="alft-insubheader">from last month</p>
+                      </a>
+                    </div>
+            </div>
+
+        </div>
+
+        <!-- NOMINATION TRACKING FOR MOBILE VIEW -->
+                <div class="graph-container d-block d-md-block d-lg-none mt-4" style="box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.2); border-radius: 4px; padding: 15px;">
+        <div class="affliate-header">Nomination Tracking</div>
+            <p class="aflt-subheader">For Tracking Referrals</p>
+        <div class="btn-group mb-3" role="group">
+            <button type="button" class="btn btn-outline-secondary">1h</button>
+            <button type="button" class="btn btn-outline-secondary active">1d</button>
+            <button type="button" class="btn btn-outline-secondary">7d</button>
+            <button type="button" class="btn btn-outline-secondary">1m</button>
+            <button type="button" class="btn btn-outline-secondary">1y</button>
+        </div>
+        <canvas id="myChart"></canvas>
+        <div class="graph rounded border">
+          
+            <div class="tooltip" id="tooltip"></div>
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+            <span>05/24</span>
+            <span>10/24</span>
+            <span>15/24</span>
+            <span>20/24</span>
+            <span>25/24</span>
+            <span>30/24</span>
+        </div>
+    </div>
+    
+    <button id="myBtn" style="display: none;">Open Modal 1</button>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" id="myClose">&times</span>
+        <h2>Modal 1 yModal Header</h2>
+      </div>
+      <div class="modal-body">
+        <p>ySome text in the Modal Body</p>
+        <p>ySome other text...</p>
+      </div>
+      <div class="modal-footer">
+        <h3>yModal Footer</h3>
+      </div>
+    </div>
+
+  </div>
+  <!-- The Modal -->
+  <div id="myModalTwo" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <i class="fa-solid fa-link fa-2xl justify-content-center" style="color: darkblue; margin: auto; margin-top: 35px;"></i>
+      </div>
+      <div class="modal-body">
+        <div style="text-align: center; font-weight: bold; margin-top: 30px;">Affiliate Link Copied</div>
+        <p style="text-align: center; margin-top: 20px;">Link has been copied and you can share to your friends. To access your referral link again, you can click on the menu to the top right and click <b>"Referrals"</b></p>
+      </div>
+      <div class="modal-footer">
+        <button class="close" id="myClose2" style="background-color: darkblue; color: white; text-align: center; width: 90%;">Got It</button>
+      </div>
+    </div>
+
+  </div>
+    <div style="margin-top: 70px;"></div>
+      </div>
+       <div class="fixedContainer d-block d-md-block d-lg-none">
+  <div class="nav_bottom mobile">
+    <a href="#">
+      <div class="bnav">
+        <img src="../assets/images/home_bnav.svg" alt="" />
+        <p>Home</p>
+      </div>
+    </a>
+    <a href="#">
+      <div class="bnav">
+        <img src="../assets/images/dashboard_bnav.svg" alt="" />
+        <p>Dashboard</p>
+      </div>
+    </a>
+    <a href="#">
+      <div class="bnav">
+        <img src="../assets/images/chat_bnav.svg" alt="" />
+        <p>Chat</p>
+      </div>
+    </a>
+    <a href="#">
+      <div class="bnav">
+        <img src="../assets/images/affiliate_bnav.svg" alt="" />
+        <p>Affiliate</p>
+      </div>
+    </a>
+  </div>
+</div>
+<div id="modal3" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Obvestila in napake</h4>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">error</i>First
+          <span class="right grey-text">13:45 2.2.2017</span></div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">message</i>Zgodila se je napaka</div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">message</i>Third</div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.js" integrity="sha512-7DgGWBKHddtgZ9Cgu8aGfJXvgcVv4SWSESomRtghob4k4orCBUTSRQ4s5SaC2Rz+OptMqNk0aHHsaUBk6fzIXw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" integrity="sha512-CQBWl4fJHWbryGE+Pc7UAxWMUMNMWzWxF4SQo9CgkJIN1kx6djDQZjh3Y8SZ1d+6I+1zze6Z7kHXO7q3UyZAWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/helpers.js" integrity="sha512-08S2icXl5dFWPl8stSVyzg3W14tTISlNtJekjsQplv326QtsmbEVqL4TFBrRXTdEj8QI5izJFoVaf5KgNDDOMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/helpers.min.js" integrity="sha512-JG3S/EICkp8Lx9YhtIpzAVJ55WGnxT3T6bfiXYbjPRUoN9yu+ZM+wVLDsI/L2BWRiKjw/67d+/APw/CDn+Lm0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="chart.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+      import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+      import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+          apiKey: "AIzaSyAWhVX5KwezdLXUTV898Y1KKbsTfNOU9CU",
+          authDomain: "bookit-e3556.firebaseapp.com",
+          databaseURL: "https://bookit-e3556-default-rtdb.firebaseio.com",
+          projectId: "bookit-e3556",
+          storageBucket: "bookit-e3556.appspot.com",
+          messagingSenderId: "624655882811",
+          appId: "1:624655882811:web:4777086ca8f8e66e495a1e",
+          measurementId: "G-C5N1K2FH2Y"
+      };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase(app);
+
+        // Reference to the HTML elements
+        const userNameElement = document.getElementById('userName');
+        const userPhoneElement = document.getElementById('userPhone');
+        const affiliateLinkInput = document.getElementById('affiliateLink');
+        const copyButton = document.getElementById('copyButton');
+        const telegramIcon = document.getElementById('telegram');
+        const whatsappIcon = document.getElementById('whatsapp');
+        const instagramIcon = document.getElementById('instagram');
+        const referralCountElement = document.getElementById('referralCount');
+        const balanceElement = document.getElementById('balance');
+        const withdrawButton = document.getElementById('withdrawButton');
+        const toggleIcon = document.getElementById('toggle-icon');
+
+        let currentBalance = 0;
+
+        // Function to fetch user data
+        function fetchUserData(user) {
+            const userRef = ref(database, 'users/' + user.uid);
+
+            // Fetch user data from Firebase
+            get(userRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    const userName = `${userData.firstName} ${userData.lastName}`;
+                    const userPhone = userData.phone;
+                    const username = `${userData.firstName}${userData.lastName}`; // Create the username part for the link
+                    const affiliateLink = `https://bookitquick.ng/${username}`;
+                    const referrals = userData.referrals || 0;
+                    currentBalance = referrals * 500;
+
+                    // Update HTML elements with user data
+                    userNameElement.textContent = `Name: ${userName}`;
+                    userPhoneElement.textContent = `Phone: ${userPhone}`;
+                    affiliateLinkInput.value = affiliateLink;
+                    referralCountElement.textContent = `Referrals: ${referrals}`;
+                    balanceElement.textContent = 'NGN ****';
+                } else {
+                    console.log('No user data found.');
+                }
+            }).catch((error) => {
+                console.error('Error fetching user data:', error);
+            });
+        }
+
+        // Handle authentication state changes
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                fetchUserData(user); // Fetch and update user data and affiliate link
+            } else {
+                console.log('No user is signed in.');
+            }
+        });
+
+        // Copy link to clipboard
+        copyButton.addEventListener('click', () => {
+            affiliateLinkInput.select();
+            document.execCommand('copy');
+            alert('Affiliate link copied to clipboard!');
+        });
+
+        // Share via social media
+        telegramIcon.addEventListener('click', () => {
+            const url = encodeURIComponent(affiliateLinkInput.value);
+            window.open(`https://t.me/share/url?url=${url}`, '_blank');
+        });
+
+        whatsappIcon.addEventListener('click', () => {
+            const url = encodeURIComponent(affiliateLinkInput.value);
+            window.open(`https://wa.me/?text=${url}`, '_blank');
+        });
+
+        instagramIcon.addEventListener('click', () => {
+            alert('Instagram sharing is not supported directly via URL. You can manually share on Instagram.');
+        });
+
+        // Function to toggle balance visibility
+        function toggleBalance() {
+            if (balanceElement.textContent === 'NGN ****') {
+                balanceElement.textContent = `NGN ${currentBalance}`;
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                balanceElement.textContent = 'NGN ****';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+
+        toggleIcon.addEventListener('click', toggleBalance);
+
+        // Function to handle withdrawal
+        function handleWithdraw(user) {
+            const userRef = ref(database, 'users/' + user.uid);
+
+            get(userRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    const referrals = userData.referrals || 0;
+                    const balance = referrals * 500;
+
+                    if (balance > 0) {
+                        // Use Paystack to process withdrawal
+                        const handler = PaystackPop.setup({
+                            key: 'sk_live_9a828cc76bd581cd5a304f67a2c1fb6f8e279084', // Replace with your Paystack public key
+                            email: user.email, // Use the user's email
+                            amount: balance * 100, // Convert to kobo
+                            currency: "NGN",
+                            callback: async function(response) {
+                                // Payment successful, update balance in Firebase
+                                await update(userRef, { referrals: 0 });
+                                alert(`Withdrawal successful. Amount: NGN ${balance}`);
+                                referralCountElement.textContent = `Referrals: 0`;
+                                balanceElement.textContent = 'NGN 0';
+                            },
+                            onClose: function() {
+                                alert('Withdrawal process canceled');
+                            }
+                        });
+
+                        handler.openIframe();
+                    } else {
+                        alert('No balance to withdraw.');
+                    }
+                } else {
+                    console.log('No user data found.');
+                }
+            }).catch((error) => {
+                console.error('Error fetching user data:', error);
+            });
+        }
+
+        // Set up event listener for withdraw button
+        withdrawButton.addEventListener('click', () => {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    handleWithdraw(user);
+                } else {
+                    console.log('No user is signed in.');
+                }
+            });
+        });
+
+        // Fetch user data on auth state change
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                fetchUserData(user);
+            } else {
+                console.log('No user is signed in.');
+            }
+        });
+  </script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="scriptone.js"></script>
+    <script src="scripttwo.js"></script>
+    <script src="scriptthree.js"></script>
+    <script src="scriptfour.js"></script>
+    <script src="scriptfive.js"></script>
+    <script src="scriptsix.js"></script>
+    <script src="server.js"></script>
+    <script src="withdraw.js"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  </body>
+</html>

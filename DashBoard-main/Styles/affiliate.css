@@ -1,0 +1,85 @@
+.main-section {
+  /* background-color: white; */
+  padding: 15px;
+  /* background-color: aqua; */
+}
+
+.main-section .page-content {
+  border-radius: 10px;
+  /* background-color: blue; */
+  padding: 20px;
+  width: 70%;
+  margin: 0 10%;
+  margin-left: 0px;
+  box-shadow: 0px 4px 8px rgb(0, 0, 0, 0.12);
+}
+.main-section .page-content .top-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-section .page-content .top-content h3 {
+  margin: 0;
+}
+
+.main-section .page-content .top-content span {
+  font-size: 0.7em;
+  width: 40%;
+  margin-top: 7px;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-cont .content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content-cont .content h3 {
+  margin: 0;
+}
+
+.content-cont .content img {
+  width: 100px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.content-cont .content .details {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-cont .content .details h5 {
+  margin: 0;
+}
+
+.content-cont .content .details span {
+  font-size: 0.75rem;
+  width: 70%;
+  margin-top: 5px;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.button a {
+  color: white;
+  background-color: rgb(64, 20, 196);
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}

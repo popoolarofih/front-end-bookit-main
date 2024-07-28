@@ -1,0 +1,45 @@
+.side-section {
+  height: 80vh;
+}
+
+body {
+  background-color: rgb(245, 245, 245);
+}
+
+.main-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aqua; */
+}
+
+.content {
+  padding: 25px;
+  background-color: white;
+  margin-right: 20px;
+  box-shadow: 0px 4px 8px rgb(0, 0, 0, 0.1);
+}
+
+.notification {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.notification .details {
+  display: flex;
+  flex-direction: column;
+  color: rgb(20, 157, 20);
+}
+
+.notification .details .fa-check-circle {
+  background-color: rgb(20, 157, 20);
+}
+
+.notification .details h3 {
+  margin: 0;
+}
+.notification .details span {
+  font-size: 0.8rem;
+}

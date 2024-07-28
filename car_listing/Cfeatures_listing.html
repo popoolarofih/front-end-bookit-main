@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List your Car</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+  <main class="grid gap-20 h-fit">
+    <button class="">
+      <a href="./Clocation_listing.html">
+        <img src="../assets/icons/arrow.svg" width="20px" alt="">
+      </a>
+    </button>
+    
+    <div class="Car_range">
+      <div class="Car_value"></div>
+    </div>
+    
+    <div>
+      <h1>Select the features that come with your Car</h1>
+    </div>
+    <P>What fuel does your car operate on</P>
+    <div class="Car_grid gap-12 grid-cols-3 mt-12">
+      <button class="car-option">
+        <div class="w-fit Car_grid">
+          <img src="../assets/icons/bed.png" width="20px" alt="">
+          <p class="mt-12">Petrol</p>
+        </div>
+        <div class="check">
+          <img src="../assets/icons/check.svg" alt="">
+        </div>
+      </button>
+      <button class="car-option selected">
+        <div class="w-fit Car_grid">
+          <img src="../assets/icons/bed.png" width="20px" alt="">
+          <p class="mt-12">Disel</p>
+        </div>
+        <div class="check">
+          <img src="../assets/icons/check.svg" alt="">
+        </div>
+      </button>
+      <button class="car-option">
+        <div class="w-fit Car_grid">
+          <img src="../assets/icons/bed.png" width="20px" alt="">
+          <p class="mt-12">Electric</p>
+        </div>
+        <div class="check">
+          <img src="../assets/icons/check.svg" alt="">
+        </div>
+      </button>
+      </div>
+
+
+<p>Automatic or manual</p>
+      <div class="Car_grid gap-12 grid-cols-3 mt-10">
+        <button class="car-option">
+          <div class="w-fit Car_grid">
+            <img src="../assets/icons/bed.png" width="20px" alt="">
+            <p class="mt-12">Automatic</p>
+          </div>
+          <div class="check">
+            <img src="../assets/icons/check.svg" alt="">
+          </div>
+        </button>
+        <button class="car-option selected">
+          <div class="w-fit Car_grid">
+            <img src="../assets/icons/bed.png" width="20px" alt="">
+            <p class="mt-12">manual</p>
+          </div>
+          <div class="check">
+            <img src="../assets/icons/check.svg" alt="">
+          </div>
+        </button>
+       
+        </div>
+
+
+    <div class="Car_grid gap-20">
+      <div>
+        <p>Escorts available?</p>
+        <div class="Car_input flex gap-20 mt-12">
+          <p>Escorts available?</p>
+          <div class="Ctoggle-background false">
+            <div class="Cswitch"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <p>Drivers available?</p>
+        <div class="Car_input flex gap-20 mt-12">
+          <p>Drivers available?</p>
+          <div class="Ctoggle-background false">
+            <div class="Cswitch"></div>
+          </div>
+        </div>
+
+      </div>
+      <div>
+        <p>Air Conditional Available?</p>
+        <div class="Car_input flex gap-20 mt-12">
+          <p>Yes, available</p>
+          <div class="Ctoggle-background">
+            <div class="Cswitch"></div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <div>
+        <p>How many seats in the Car ?</p>
+        <div class=" mt-12">
+          <div class="input-group">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-primary btn-number"  data-type="minus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-minus"></span>
+                </button>
+            </span>
+            <input type="text" name="quant[2]" class="form-control input-number" value="10" min="1" max="5">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[2]">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </div>
+        </div>
+
+      </div>
+
+
+      <a href="./Cphotos_listing.html" type="submit" class="Pprimary-btn mt-20">Continue</a>
+    </div>
+  </main>
+  <script>
+    $('.btn-number').click(function(e){
+    e.preventDefault();
+    
+    fieldName = $(this).attr('data-field');
+    type      = $(this).attr('data-type');
+    var input = $("input[name='"+fieldName+"']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if(type == 'minus') {
+            
+            if(currentVal > input.attr('min')) {
+                input.val(currentVal - 1).change();
+            } 
+            if(parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+            }
+
+        } else if(type == 'plus') {
+
+            if(currentVal < input.attr('max')) {
+                input.val(currentVal + 1).change();
+            }
+            if(parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+            }
+
+        }
+    } else {
+        input.val(0);
+    }
+});
+$('.input-number').focusin(function(){
+   $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+    
+    minValue =  parseInt($(this).attr('min'));
+    maxValue =  parseInt($(this).attr('max'));
+    valueCurrent = parseInt($(this).val());
+    
+    name = $(this).attr('name');
+    if(valueCurrent >= minValue) {
+        $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the minimum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    if(valueCurrent <= maxValue) {
+        $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the maximum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    
+    
+});
+$(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) || 
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+  </script>
+</body>
+</html>

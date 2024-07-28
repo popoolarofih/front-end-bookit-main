@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Details</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <nav style="padding: 24px;" class="flex justify-between">
+    <button class="back-btn">
+      <img src="../assets/icons/arrow.svg" width="20px" alt="">
+    </button>
+    <h4>Booking Summary Details</h4>
+    <button style="color: white;" class="tertiary-btn">Cancel</button>
+  </nav>
+  <main>
+    <div class="snapshot">
+      <div class="image"></div>
+      <div class="">
+        <h5>Mercedes Benz GLE 2023</h5>
+        <p>No 21, Abule-Egba street, Lagos Nigeria  </p>
+        <p class="gray mt-12">June 10, 2024</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="location">
+      <h4>Location</h4>
+      <div class="map mt-6">
+        <img src="../assets/map.png" width="100%" alt="">
+        <div class="location-info">
+          <p>123 Sunset Boulevard, Los Angeles, CA 90001</p>
+          <a href="" class="tertiary-btn" style="font-size: 14px; font-weight: 400px;">Tap to view directions</a>
+        </div>
+      </div>
+      <p class="gray flex gap-6 mt-6">
+        <img src="../assets/icons/info.svg" width="16px" alt="">
+        Need directions? We've got you
+      </p>
+    </div>
+
+    <div class="grid gap-12 mt-20">
+      <h3>Booking Summary</h3>
+      <div class="flex justify-between">
+        <p>Booking ID</p>
+        <p>89283BKT</p>
+      </div>
+      <div class="flex justify-between">
+        <p>Payment type</p>
+        <p>Hourly Payment</p>
+      </div>
+      <div class="flex justify-between">
+        <p>Duration</p>
+        <p>3 hours</p>
+      </div>
+      <div class="flex justify-between">
+        <p>Booking Status</p>
+        <p class="transaction-status active">Active</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="grid gap-12">
+      <h3>Billing Details</h3>
+      <div class="flex justify-between">
+        <div>
+          <p>3 hours x  NGN 1,550 per hr</p>
+          <span style="color: #00000060; font-size: 12px;">NGN 1,550 per hour</span>
+        </div>
+        <p>NGN 4,650</p>
+      </div>
+      <div class="flex justify-between">
+        <p>Taxes & Fees</p>
+        <p>NGN 580</p>
+      </div>
+      <div class="flex secondary-btn">
+        <p style="font-weight: 600;">Total Amount</p>
+        <p style="font-weight: 600;">NGN 5,230</p>
+      </div>
+    </div>
+    <div class="flex mt-20">
+      <button class="primary-btn">Make Changes</button>
+      <button style="color: red;" class="secondary-btn">Cancel Booking</button>
+    </div>
+  </main>
+</body>
+</html>

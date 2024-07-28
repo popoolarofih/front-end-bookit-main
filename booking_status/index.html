@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Status</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="blue-nav">
+    <h3>Booking Status</h3>
+    <p>View your upcoming bookings</p>
+
+    <div class="search-filter-input input">
+      <div class="flex gap-8">
+        <img src="../assets/icons/Search.svg" width="20px"  alt="Search Icon">
+        <input style="padding: 0; border: none;" placeholder="Search for bookings..." type="text">
+      </div>
+
+      <p style="color: black;" class="flex gap-6">
+        Filter by
+          <img src="../assets/icons/chevron.svg" width="16px" alt="Dropdown Icon">
+      </p>
+
+      <div class="filter-options hidden">
+        <h5>Date Range</h5>
+        <h5>Service Type e.g Car Rental</h5>
+        <h5>Booking Status</h5>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="mt-20">
+      <h3>Your upcoming bookings</h3>
+      <div class="booking-status-type mt-12">
+        <h3>3</h3>
+        <div class="h4 mt-20">Upcoming Bookings</div>
+        <p class="mt-6">View and update your upcoming reservations and plans</p>
+      </div>
+    </div>
+    
+    <p class="gray mt-20">Tuesday 22 June, 2024</p>
+    <div class="divider"></div>
+    <div id="history-item" class="flex justify-between mt-12 reative">
+      <div>
+        <h4>Mercedes Benz GLE</h4>
+        <p>Car Rental</p>
+        <p class="mt-6">NGN 250,540</p>
+      </div>
+      <div>
+        <p class="transaction-status active">Upcoming</p>
+        <p>8872BKT</p>
+      </div>
+    </div>
+
+    <p class="gray mt-20">23 June, 2024</p>
+    <div class="divider"></div>
+    <div id="history-item" class="flex justify-between mt-12 reative">
+      <div>
+        <h4>Sheraton Hotels</h4>
+        <p>Hotel Reservation</p>
+        <p class="mt-6">NGN 78,095</p>
+      </div>
+      <div>
+        <p class="transaction-status active">Upcoming</p>
+        <p>8872BKT</p>
+      </div>
+    </div>
+
+    <p class="gray mt-20">24 June, 2024</p>
+    <div class="divider"></div>
+    <div id="history-item" class="flex justify-between mt-12 reative">
+      <div>
+        <h4>Mercedes Benz GLE</h4>
+        <p>Car Rental</p>
+        <p class="mt-6">NGN 250,540</p>
+      </div>
+      <div>
+        <p class="transaction-status active">Active</p>
+        <p>8872BKT</p>
+      </div>
+    </div>
+    <div id="history-item" class="flex justify-between mt-12">
+      <div>
+        <h4>Yute Fest 2024</h4>
+        <p>Events Ticket</p>
+        <p class="mt-6">NGN 1,380</p>
+      </div>
+      <div>
+        <p class="transaction-status successful">Successful</p>
+        <p>8872BKT</p>
+      </div>
+    </div>
+    
+  </main>
+</body>
+</html>

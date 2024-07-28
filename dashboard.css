@@ -1,0 +1,316 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+  width: 100%;
+}
+
+.dashboard h4 {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.acctOverview {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 2em;
+}
+.acctOverview .title {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.balance {
+  display: flex;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: 67% 32%; */
+  gap: 4%;
+  padding: 2em 3em;
+  margin-right: auto;
+  box-shadow: 0em 0.2em 0.25em 0 #3d3d3d90;
+  background-color: #fff;
+  border-radius: 10px;
+  flex: 0.65;
+  color: #e4e5e7;
+}
+.curBalance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  /* width: 451px; */
+  /* max-height: 254px; */
+  background: url("./assets/images/dashboard/card1bg.png");
+  background-size: cover;
+  padding: 2.5em;
+  border-radius: 41.4px;
+  flex: 0.7;
+}
+/* .curBalance .title {
+} */
+.curBalance .amount {
+  font-size: 38.7px;
+  font-weight: 600;
+}
+.curBalance .cardNo {
+  font-size: 19px;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 205px;
+  height: 253px;
+  background: url("./assets/images/dashboard/card1bg.png");
+  background-size: cover;
+  border-radius: 40px;
+  padding: 1.5em;
+  flex: 0.3;
+}
+
+.card .title {
+  margin-top: auto;
+}
+/* .card .cardNo {
+} */
+.card .chipDate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1.5em;
+}
+
+.fundWallet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  flex: 0.34;
+  padding: 4em 1.5em;
+  box-shadow: 0em 0.2em 0.25em 0 #3d3d3d90;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.fundWallet h4 {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.options {
+  display: flex;
+  gap: 2em;
+}
+
+.option img {
+  width: 30px;
+  height: 30px;
+  padding: 20px;
+  border-radius: 100%;
+  background-color: hsla(197, 71%, 73%, 0.06);
+}
+.options .option {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-size: 15px;
+}
+
+.servBookingCal {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+.serviceOverview {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em 1.5em;
+  box-shadow: 0em 0.2em 0.25em 0 #3d3d3d90;
+  background-color: #fff;
+  border-radius: 10px;
+  flex: 0.55;
+}
+.serviceOverview .title {
+  border-bottom: 2px solid #e4e5e7;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.7em;
+}
+.serviceOverview .labels {
+  border-bottom: 2px solid #e4e5e7;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.7em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: hsla(0, 0%, 0%, 0.5);
+}
+
+/* .serviceOverview .items {
+} */
+
+.serviceOverview .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  padding: 0.5em 0;
+}
+
+.serviceOverview .item .availability {
+  font-weight: 600;
+}
+
+.bookingCalendar {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em 1.5em;
+  box-shadow: 0em 0.2em 0.25em 0 #3d3d3d90;
+  background-color: #fff;
+  border-radius: 10px;
+  flex: 0.55;
+}
+.bookingCalendar .calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.bookingCalendar .calendar .monthDates {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* justify-content: space-between;
+  align-items: center; */
+  position: relative;
+  width: 100%;
+}
+
+.bookingCalendar .calendar .monthDates .monthYear {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
+}
+
+.bookingCalendar .calendar .monthDates .monthYear div {
+  font-size: 19px;
+  font-weight: 600;
+  display: flex;
+  gap: 0.5em;
+}
+
+.monthDates .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  place-items: center;
+  gap: 1em;
+  margin-top: 1.5em;
+}
+
+.days .day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+}
+
+.monthDates .dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  place-items: center;
+  gap: 1.5em;
+  margin-top: 1em;
+}
+
+.dates .date {
+  /* flex: 20%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #f4f4f4;
+}
+
+.bookingSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 2em 1.5em;
+  box-shadow: 0em 0.2em 0.25em 0 #3d3d3d90;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+
+.bookingSummary .title {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.bookingSummary h4 {
+  font-size: 19px;
+  font-weight: 600;
+}
+.bookingSummary .labels {
+  display: flex;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 19% 25% 22% 20% 17%;
+}
+.bookingSummary .items {
+  display: grid;
+  grid-template-columns: 18% 23% 23% repeat(2, 17%);
+  place-items: start;
+  gap: 1em;
+}
+
+/* hvsdsd */
+.bookingSummary .items div {
+  flex: 1;
+}
+
+.status,
+.date,
+.actions {
+  place-self: center;
+}
+
+.bookingSummary .items .status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  font-size: 8px;
+  color: hsla(145, 63%, 42%, 1);
+  background-color: hsla(145, 63%, 42%, 0.1);
+  border-radius: 10px;
+}
+
+.bookingSummary .items .actions button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  font-size: 8px;
+  color: hsla(0, 79%, 63%, 1);
+  background-color: hsla(0, 79%, 63%, 0.1);
+  border-radius: 10px;
+}

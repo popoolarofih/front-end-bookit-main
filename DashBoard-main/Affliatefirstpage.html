@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="./Styles/affliatefirstpage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <!-- slider main container  -->
+    <div class="swipercard">
+        <div class="swiper">
+            <!-- Additional required wrapper  -->
+            <div class="swiper-wrapper">
+                <!-- Slides  -->
+                <div class="swiper-slide firstslide">
+                    <div class="firstslide_details">
+                        <h2>Welcome to Your Affiliate Dashboard!</h2>
+                        <h3>Welcome to the BOOKIT Affiliate Program! Track your earnings and manage referrals. Let's explore the dashboard's key features.</h3>
+                    </div>
+                </div>
+                <div class="swiper-slide secondslide">
+                    <div class="secondslide_details">
+                        <h2>Why you should join the affiliate program...</h2>
+                        <h3>Earn While You Share the Love!</h3>
+                        <ul>
+                            <li>You can’t earn anything less than NGN 800 with every referral you make.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-slide thirdslide">
+                    <div class="thirdslide_details">
+                        <h2>Get Started with just N1000. Pay once and for all.</h2>
+                        <h3>Access all the features of the BOOKIT Affiliate Dashboard and start earning from your referrals</h3>
+                        <button id="payButton">Pay N1000</button>
+                    </div>
+                </div>
+            </div>
+            <!-- swiper pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+    import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAWhVX5KwezdLXUTV898Y1KKbsTfNOU9CU",
+    authDomain: "bookit-e3556.firebaseapp.com",
+    databaseURL: "https://bookit-e3556-default-rtdb.firebaseio.com",
+    projectId: "bookit-e3556",
+    storageBucket: "bookit-e3556.appspot.com",
+    messagingSenderId: "624655882811",
+    appId: "1:624655882811:web:4777086ca8f8e66e495a1e",
+    measurementId: "G-C5N1K2FH2Y"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const database = getDatabase(app);
+
+// Reference to the payment button
+const payButton = document.getElementById('payButton');
+
+// Function to initialize Paystack payment
+function payWithPaystack(user) {
+    let handler = PaystackPop.setup({
+        key: 'pk_live_ab995f451253aaca1a9c05a5698e4637326eb0df', // Replace with your Paystack public key
+        email: user.email,
+        amount: 100000, // Amount in kobo
+        currency: "NGN",
+        ref: 'TX' + Math.floor((Math.random() * 1000000000) + 1), // Generate a random reference number
+        callback: function(response) {
+            // Successful payment
+            console.log('Payment successful. Transaction reference:', response.reference);
+            // Update user's payment status in Firebase
+            const userRef = ref(database, 'users/' + user.uid);
+            set(userRef, {
+                paymentStatus: 'paid',
+                // Include any other user data you have
+            }).then(() => {
+                window.location.href = 'AffiliateIndex.html'; // Redirect to the affiliate dashboard
+            }).catch((error) => {
+                console.error('Error updating payment status:', error);
+            });
+        },
+        onClose: function() {
+            console.log('Payment window closed.');
+        }
+    });
+    handler.openIframe();
+}
+
+// Event listener for the payment button
+payButton.addEventListener('click', () => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in
+            payWithPaystack(user);
+        } else {
+            // No user is signed in
+            alert('You need to sign in first.');
+        }
+    });
+});
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="Affliatefirstpage.js"></script>
+</body>
+</html>

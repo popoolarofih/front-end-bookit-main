@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify your Email</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <main>
+    <div class="first_img">
+      <img src="./assets/images/bookitblue.png" alt="">
+    </div>
+    <div class="Logincontainerone">
+      <h3>Enter the 4-digit code sent to you at</h3>
+      <h4 id="user-email"></h4>
+      <a href="./email.html"><h4>Change email</h4></a>
+    </div>
+    <div class="Logincontainer">
+      <form id="verifyForm">
+        <div class="Verifyinput-boxes">
+          <input type="text" id="otp-1" maxlength="1" required>
+          <input type="text" id="otp-2" maxlength="1" required>
+          <input type="text" id="otp-3" maxlength="1" required>
+          <input type="text" id="otp-4" maxlength="1" required>
+        </div>
+        <button type="submit" class="secondary-btn">Proceed</button>
+        <button id="resend-otp" type="button" class="secondary-btn">Resend Code</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const email = sessionStorage.getItem('userEmail');
+      document.getElementById('user-email').innerText = email;
+
+      document.getElementById('verifyForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const otp = `${document.getElementById('otp-1').value}${document.getElementById('otp-2').value}${document.getElementById('otp-3').value}${document.getElementById('otp-4').value}`;
+        
+        // Call your backend to verify the OTP
+        fetch('/verify-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, otp: otp })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('Email verified successfully!');
+            window.location.href = 'identity.html';
+          } else {
+            alert('Invalid OTP. Please try again.');
+          }
+        });
+      });
+
+      document.getElementById('resend-otp').addEventListener('click', () => {
+        // Call your backend to resend the OTP
+        fetch('/resend-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('OTP resent to your email.');
+          } else {
+            alert('Error resending OTP. Please try again.');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

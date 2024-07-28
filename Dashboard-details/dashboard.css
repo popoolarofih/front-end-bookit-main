@@ -1,0 +1,1101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+  --primary-color: #022F8E;
+  --secondary-color: #F2F2F2;
+  /* --tertiary-color: # */
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: scroll;
+}
+
+main {
+  position: relative;
+  height: 100%;
+  margin: 0 24px;
+  padding: 24px 0;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  accent-color: var(--primary-color);
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18.6px;
+  font-style: italic;
+  margin: 0;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+p {
+ font-weight: 400;
+ font-size: 14px;
+}
+
+.secondary-btn {
+  background-color: #022F8E10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+}
+
+.tertiary-btn{
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 16px;
+  background: none;
+}
+
+.primary-btn {
+  color: white;
+  background: var(--primary-color);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.primary-btn:disabled {
+  background-color: #022F8E50 ;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  display: block;
+}
+
+input, .input {
+  border: 1px solid #D0D5DD;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  outline: none;
+  width: 100%;
+  background-color: white;
+  padding: 10px 14px;
+}
+
+input:hover, input:focus {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+input::placeholder {
+  color: #00000050;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.blue {
+  color: var(--primary-color)
+}
+
+.gray {
+  color: #00000060;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.divider {
+  margin: 20px 0;
+  width: 100%;
+  height: 1px;
+  background-color: #D0D5DD;
+}
+
+.toggle-background{
+  border-radius: 9999px;
+  background: var(--primary-color);
+  width: 44px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0 4px;
+}
+
+.switch {
+  background: white;
+  border-radius: 9999px;
+  aspect-ratio: 1;
+  width: 16px;
+}
+
+.paragraph {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.paragraph span {
+  height: 20px;
+}
+
+.available {
+  background-color: #017401;
+  padding: 3px 12px;
+  color: white;
+  display: block;
+  width: fit-content;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+/* boat css */
+header {
+  background: url('../images/boat.jpg');
+  height: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 24px;
+  position: relative;
+}
+
+.counter {
+  background-color: black;
+  color: white;
+  width: fit-content;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 4px 24px;
+  font-size: 14px;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.discount  {
+  margin-left: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 3px 8px;
+  background-color: #022F8E10;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 400;
+  width: fit-content;
+}
+.nav > button {
+  background-color: white;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+
+.heading {
+  height: fit-content;
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  height: 4px;
+  aspect-ratio: 1;
+  background-color: black;
+  border-radius: 50%;
+  display: block;
+}
+
+.flex {
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.options {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.input {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: .75rem;
+  width: 200px;
+}
+
+.select3  {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: .75rem;
+  width: 200px;
+}
+
+.select select {
+  width: 300px;
+  height: 40px;
+}
+
+.select3 select {
+  width: 300px;
+  height: 40px;
+}
+
+.day {
+  display: flex;
+  position: absolute;
+  gap: 4px;
+  right: 5px;
+  width: 160px;
+  height: 400px;
+  align-items: center;
+  margin-bottom: .75rem;
+}
+
+.checkbox {
+  border: 1px solid #00000060;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 24px;
+  height: 24px;
+}
+
+.checkbox.active {
+  color: #005BD3;
+}
+
+.primary-btn.badge {
+  padding: 4px 8px;
+  width: fit-content;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.details {
+  padding: 36px 0;
+  display: grid;
+  gap: 36px;
+}
+
+.occupancy {
+  display: grid;
+  gap: 20px;
+}
+
+.occupancy h4 {
+  font-weight: 600;
+}
+
+.check {
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 20px;
+  height: 20px;
+  background-color: #017401;
+}
+
+.specials ul {
+  margin-top: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.specials li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.map {
+  border: 1px solid #00000060;
+}
+
+.map img {
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
+  object-position: center;
+}
+
+.info {
+  padding: 12px;
+}
+
+.address {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.circle {
+  border: 8px solid black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}
+
+.line {
+  border-right: 3px dashed black;
+  height: 50px;
+  width: 0px;
+  margin: 0 auto;
+}
+
+.square {
+  border: 8px solid black;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}
+
+.owner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pfp {
+  background: url('../images/pfp.jpg');
+  width: 72px;
+  aspect-ratio: 1;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.overlay {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100dvh;
+}
+
+.checkout {
+  background: white;
+  padding: 24px;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkout a {
+  width: fit-content;
+}
+.facilities {
+  display: flex;
+  gap: 8px;
+}
+
+.facility {
+  border: 1px solid #00000060;
+  border-radius: 8px;
+  padding: 16px 8px;
+  display: grid;
+  gap: 8px;
+  width: 25%;
+}
+header {
+  background: url('../images/apartment.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* rentals css */
+
+
+.snapshot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.image {
+  background: url('../images/car.jpg');
+  width: 64px;
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.available {
+  background-color: #017401;
+  padding: 3px 12px;
+  color: white;
+  display: block;
+  width: fit-content;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.summary {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.input {
+  border: 1px solid #D0D5DD;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  outline: none;
+  width: 100%;
+  padding: 0 14px;
+}
+
+.input p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.input input {
+  border: none;
+  padding: none;
+}
+
+
+.flex.secondary-btn {
+  justify-content: space-between;
+  font-weight: 600;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.flex p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.billing {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+a.primary-btn {
+  margin-top: 20px;
+}
+
+/* success css */
+
+.status-icon {
+  display: flex;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.heading > img {
+  margin-bottom: 12px;
+}
+
+h4 {
+  margin-top: 6px;
+}
+
+.snapshot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.image {
+  background: url('../images/car.jpg');
+  width: 64px;
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.available {
+  background-color: #017401;
+  padding: 3px 12px;
+  color: white;
+  display: block;
+  width: fit-content;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.flex, .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex.secondary-btn {
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.flex.total {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.flex > .primary-btn {
+  width: fit-content;
+}
+
+.renter-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.paragraph {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.summary {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.billing {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+.image {
+  background: url('../images/apartment.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* apartment css */
+
+main {
+  background: url('../images/apartment_map.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 24px;
+}
+
+.bottom {
+  position: relative;
+  z-index: 99;
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-end;
+}
+
+.right {
+  display: grid;
+  gap: 20px;
+  place-content: center;
+  padding: 12px;
+  background-color: white;
+  width: fit-content;
+  border-radius: 12px;
+}
+
+.back {
+  background-color: white;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 9999px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  border-radius: 200px;
+  margin-top: 20px;
+}
+
+.image {
+  background: url('../images/apartment.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  padding: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.cancel{
+  background-color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-content: center;
+}
+
+.details {
+  padding: 12px;
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.pin {
+  position: absolute;
+}
+
+.picture {
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  height: 80px;
+  background: url('../images/room1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+  border-bottom: 0;
+}
+
+.drop {
+  position: relative;
+  align-items: flex-start;
+  justify-content: center;
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.triangle {           
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #2B67F6;
+  position: absolute;
+}
+
+.circle {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background-color: #2B67F6;
+  border: 15px solid #87CEEB;
+  width: 50px;
+}
+
+.p1 {
+  top: 50%;
+  right: 5%;
+}
+
+.p2 {
+  top: 30%;
+  left: 15%;
+}
+
+.p3 {
+  top: 60%;
+}
+a{
+  text-decoration: none;
+  color: #000000;
+}
+
+/* agreement css */
+
+.container {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  height: 65vh;
+}
+
+.heading {
+  display: grid;
+  gap: 6px;
+}
+
+a.primary-btn{
+  margin-top: 20px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle-background{
+  border-radius: 9999px;
+  background: var(--primary-color);
+  width: 44px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0 4px;
+}
+
+.switch {
+  background: white;
+  border-radius: 9999px;
+  aspect-ratio: 1;
+  width: 16px;
+}
+
+/* email */
+
+header {
+  background: url('../images/award.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carDetailsone{
+  min-height: 100vh;
+  background-image: url(../assets/cars/gla.png);
+  background-attachment: fixed;
+  background-position: center;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.section-one{
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    text-align: center; 
+}
+.section-one img{
+    width: 10%;
+}
+.sectionTwo{
+    margin:2rem ;
+}
+.sectionTwo a{
+    color: #fff;
+    background: #017401;
+    border: none;
+    text-decoration: none;
+    padding: .5px 2px .5px 2px;
+}
+
+.partTwo{
+    display: flex;
+    margin:2rem ;
+}
+
+.partTwodetail{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+}
+
+.partTwodetail img{
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.partTwo hr{
+    height: 30px;
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.partThree{
+    border: 2px solid #000000;
+    margin: 2rem;
+    height: 100px;
+    padding: 0.75rem 5px 2px 5px;
+    justify-content: center;
+    align-items: center;
+
+}
+.box-one{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box-one input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.box-one .recomm{
+    color: #fff;
+    background: #022FBE;
+    padding: 5px 5px 3px 5px;
+}
+
+
+.sectiontwo{
+    margin: 2rem 0rem 0rem 2rem;
+    
+}
+.sectiontwo h2{
+    margin-bottom: 0.75rem;
+}
+.sectiontwo a {
+    color: #022FBE;
+    margin-bottom: 2rem;
+}
+
+.rulesOne{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.rulesOne img{
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.rulesOne span p{
+    justify-content: center;
+    text-align: center;
+    margin-top: .5rem;
+}
+.rulesOne span h2{
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+}
+.sub-sectionthree{
+    border: 2px solid #978c8c19;
+    border-radius: 0px 0px 5px 0px;
+    width: fit-content;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.sectiontwo-policy{
+    margin-top: 2rem;
+}
+
+.sectiontwo-policy h3{
+    margin-bottom: .5rem;
+    
+}
+.sectiontwo-policy h4{
+    margin-top: 1rem;
+
+}
+.Carowner{
+    display: flex;
+}
+.Carownerimg img{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin: 0rem .5rem 1rem 0;
+}
+.carContact{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+.contactInfro{
+    position: relative;
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-end;
+    justify-content: center;
+    text-align: center;
+}
+.Carowner .owner{
+    margin-top: 0.75rem;
+}
+.Carowner .owner img{
+    width: 20px;
+    height: 20px;
+}
+  
+
+@media screen and (max-width: 480px) {
+    .section-one{
+        width: 90%;
+        position: absolute;
+        top: 3%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+        text-align: center; 
+    }
+    .section-one img{
+        width: 20%;
+    }
+.sectionTwo{
+    margin: 2px 2px 2px 2px;
+}
+
+.partTwo{
+    margin: 5px 2px 2px 2px;
+    padding: 0 2px 2px 0;
+    justify-content: space-around;
+}
+.partThree{
+    margin: 4px 2px 10px 2px;
+}
+.box-one{
+    align-items: center;
+    padding-top: 2px;
+}
+.recomm{
+    display: none;
+}
+.sectiontwo{
+    margin: 2px 2px 2px 2px;
+}
+
+}

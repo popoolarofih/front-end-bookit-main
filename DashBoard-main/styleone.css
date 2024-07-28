@@ -1,0 +1,105 @@
+.copy-container {
+    background-color: #002080;
+    padding: 20px 30px;
+    border-radius: 7px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    margin-top: 12px;
+}
+
+.copytitle {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+.affiliate-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 0 10px; /* Adjust padding to fit within the container */
+    width: 100%;
+}
+
+.affiliate-link input {
+    border: none;
+    padding: 12px;
+    flex-grow: 1; /* Allow input to grow */
+    width: 230px;
+    font-size: 1em;
+    color: #333;
+    height: 60px;
+}
+
+.affiliate-link input:focus {
+    outline: none;
+}
+
+.affiliate-link button {
+    padding: 8px 15px;
+    border: none;
+    background-color: darkblue;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    height: 40px;
+    margin-right: 8px;
+    margin-left: 10px; /* Space between input and button */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.affiliate-link button:hover {
+    background-color: #002080;
+}
+
+.social-icons {
+   display: flex;
+    justify-content: flex-start;
+    gap: 10px; /* Adjust the gap between icons if needed */
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .affiliate-link {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .affiliate-link input {
+        margin-bottom: 10px; /* Space between input and button */
+        width: 100%;
+    }
+
+    .affiliate-link button {
+        width: 100%;
+        margin-left: 0; /* Remove margin for smaller screens */
+    }
+
+    .social-icons {
+        justify-content: center; /* Center icons on smaller screens */
+    }
+}
+

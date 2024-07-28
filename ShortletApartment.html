@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:slnt@-10&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    
+    <title>BookIT | Shortlet Apartment</title>
+  </head>
+  <body>
+    <header class="header">
+      <!-- Mobile view -->
+      <div class="head mobile">
+        <div class="logoProfile">
+          <div class="logo">
+            <img src="./assets/images/logo-img.png" alt="" />
+          </div>
+          <div class="profNot Right-section">
+            <!-- NOTIFICATION ICON -->
+      <button type="button" style="border: white !important;" class="flex rounded-full" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown1" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <div class="Nnote-cont">
+          <i class="fa-solid fa-bell fa-shake" aria-hidden="true"></i>
+          <span class="Ndot"></span>
+        </div>
+      </button>
+      <!-- Dropdown menu -->
+      <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown1">
+        <div class="px-4 py-3">
+          <div id="toast-warning" class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-700 dark:text-blue-200">
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"/>
+              </svg>
+              <span class="sr-only">Warning icon</span>
+            </div>
+            <div class="ms-3 text-sm font-normal">You just had a new referral.</div>
+            <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-warning" aria-label="Close">
+              <span class="sr-only">Close</span>
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+            <!-- USER ICON -->
+            <button type="button" style="border: white !important;" class="flex rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+              <span class="sr-only">Open user menu</span>
+              <div class="Nnote-cont">
+              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+            </div>
+              <!-- <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" style="border: white !important;" width="70" height="70"> -->
+            </button>
+            <!-- Dropdown menu -->
+            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+              <div class="px-4 py-3">
+                <span class="block text-sm text-gray-900 dark:text-white">Temitope Ajagbe</span>
+                <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">temitopeajagbe@bookitquick.ng</span>
+              </div>
+              <ul class="py-2" aria-labelledby="user-menu-button">
+                <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                </li>
+              </ul>
+            </div>
+      
+              <!-- NAVBAR ICON -->
+              <button type="button" style="border: white !important;" class="d-block d-md-block d-lg-block flex" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown2" data-dropdown-placement="bottom">
+              <span class="sr-only">Open user menu</span>
+              <div class="Nnote-cont" style="margin-bottom: 3px;">
+              <img src="./Dashboard-main/app (1).png" alt="" />
+            </div>
+          </button>
+          <!-- Dropdown menu -->
+            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown2">
+              <ul class="py-2" aria-labelledby="user-menu-button">
+                <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Performance&nbsp;Metrics</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Affiliate</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        </div>
+        <div class="search">
+          <input type="text" placeholder="Search for anything" />
+        </div>
+      </div>
+
+  <!-- desktop view -->
+  <div class="head desktop">
+    <div class="logo">
+      <img src="./assets/images/logo-img.png" alt="" />
+    </div>
+    <div class="search">
+      <input type="text" placeholder="Search for anything" />
+    </div>
+    <div class="profNot Right-section">
+      <!-- NOTIFICATION ICON -->
+   <button type="button" style="border: white !important;" class="flex rounded-full" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown3" data-dropdown-placement="bottom">
+     <span class="sr-only">Open user menu</span>
+     <div class="Nnote-cont">
+       <i class="fa-solid fa-bell fa-shake" aria-hidden="true"></i>
+       <span class="Ndot"></span>
+     </div>
+   </button>
+   <!-- Dropdown menu -->
+   <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown3">
+     <div class="px-4 py-3">
+       <div id="toast-warning" class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+         <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-700 dark:text-blue-200">
+           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"/>
+           </svg>
+           <span class="sr-only">Warning icon</span>
+         </div>
+         <div class="ms-3 text-sm font-normal">You just had a new referral.</div>
+         <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-warning" aria-label="Close">
+           <span class="sr-only">Close</span>
+           <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+           </svg>
+         </button>
+       </div>
+     </div>
+   </div>
+
+
+
+    <!-- USER ICON -->
+    <button type="button" style="border: white !important;" class="flex rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown5" data-dropdown-placement="bottom">
+     <span class="sr-only">Open user menu</span>
+     <div class="Nnote-cont">
+     <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+   </div>
+     <!-- <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" style="border: white !important;" width="70" height="70"> -->
+   </button>
+   <!-- Dropdown menu -->
+   <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown5">
+     <div class="px-4 py-3">
+       <span class="block text-sm text-gray-900 dark:text-white">Temitope Ajagbe</span>
+       <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">temitopeajagbe@bookitquick.ng</span>
+     </div>
+     <ul class="py-2" aria-labelledby="user-menu-button">
+       <li>
+         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+       </li>
+       <li>
+         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+       </li>
+       <li>
+         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+       </li>
+       <li>
+         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+       </li>
+     </ul>
+   </div>
+
+     <!-- NAVBAR ICON -->
+     <button type="button" style="border: white !important;" class="d-block d-md-block d-lg-block flex" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown6" data-dropdown-placement="bottom">
+     <span class="sr-only">Open user menu</span>
+     <div class="Nnote-cont" style="margin-bottom: 3px;">
+     <img src="./Dashboard-main/app (1).png" alt="" />
+   </div>
+ </button>
+ <!-- Dropdown menu -->
+   <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown6">
+     <ul class="py-2" aria-labelledby="user-menu-button">
+       <li>
+         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+       </li>
+       <li>
+         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Performance&nbsp;Metrics</a>
+       </li>
+       <li>
+         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Affiliate</a>
+       </li>
+     </ul>
+   </div>
+     
+   </div>
+  </div>
+  <div class="nav">
+    <a href="./HotelReservation.html">
+      <div class="navItem">
+        <img src="./assets/images/hotel.svg" alt="" class="nav-icons" />
+        <p>Hotel Reservation</p>
+      </div>
+    </a>
+    <a href="./CarRental.html">
+      <div class="navItem">
+        <img src="./assets/images/car.svg" alt="" class="nav-icons" />
+        <p>Car Rental</p>
+      </div>
+    </a>
+    <a href="./BoatRental.html">
+      <div class="navItem">
+        <img src="./assets/images/boat.svg" alt="" class="nav-icons" />
+        <p>Boat Rental</p>
+      </div>
+    </a>
+    <a href="./ShortletApartment.html">
+      <div class="navItem">
+        <img src="./assets/images/apartment.svg" alt="" class="nav-icons" />
+        <p>Shortlet Apartment</p>
+      </div>
+    </a>
+    <a href="./Tickets.html">
+      <div class="navItem">
+        <img src="./assets/images/ticket.svg" alt="" class="nav-icons" />
+        <p>Tickets</p>
+      </div>
+    </a>
+    <a href="./Flights.html">
+      <div class="navItem">
+        <img src="./assets/images/flight.svg" alt="" class="nav-icons" />
+        <p>Flights</p>
+      </div>
+    </a>
+    <a href="./Dashboard.html">
+      <div class="navItem">
+        <img src="./assets/images/dashboard.svg" alt="" class="nav-icons" />
+        <p>Dashboard</p>
+      </div>
+    </a>
+  </div>
+</header>
+    <main class="main">
+      <div class="heading">
+        <h1 class="title">Shortlet Apartment</h1>
+        <p class="desc">Find suitable apartments around available for rent</p>
+      </div>
+      <div class="shortletDetails">
+        <div class="shortlet">
+          <div class="title">
+            <h3>Available apartments</h3>
+            <a href="#">View all</a>
+          </div>
+          <div class="shortlets">
+            <div class="apartment">
+              <div class="image">
+                <img
+                  src="./assets/shortlets/apartment1.png"
+                  alt=""
+                  class="shortletImg"
+                />
+                <div class="rooms">
+                  <p>2 Rooms</p>
+                </div>
+              </div>
+              <div class="apartmentDesc">
+                <a href="./Dashboard-details/Apartmentexpanded.html">
+                <h4>The People's Brownstone</h4>
+              </a>
+                <p class="address">1995 Broadway, New York</p>
+                <p class="features">
+                  Wifi • Air conditioning • Kitchen • Heating • Smokers •
+                  Parking • Balcony • Animal friendly
+                </p>
+                <div class="tags">
+                  <p class="new">New Building</p>
+                  <p class="common">Common Friends</p>
+                </div>
+                <div class="ratingPrice">
+                  <div class="rating">
+                    <p class="rate">4.0</p>
+                    <div class="star">
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-empty.svg" alt="" />
+                    </div>
+                    <p>(7 reviews)</p>
+                  </div>
+                  <p class="price"><span>$3,000</span>/month</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="apartment">
+              <div class="image">
+                <img
+                  src="./assets/shortlets/apartment2.png"
+                  alt=""
+                  class="shortletImg"
+                />
+                <div class="rooms">
+                  <p>2 Rooms</p>
+                </div>
+              </div>
+              <div class="apartmentDesc">
+                <a href="./Dashboard-details/Apartmentexpanded.html">
+                <h4>Lovely room in Manhattan</h4>
+              </a>
+                <p class="address">246 Mott St, New York</p>
+                <p class="features">
+                  Wifi • Air conditioning • Kitchen • Recycling • Non smoking •
+                  Vegan friendly • Balcony • Party people
+                </p>
+                <div class="tags">
+                  <p class="sublet">Sublet</p>
+                </div>
+                <div class="ratingPrice">
+                  <div class="rating">
+                    <p class="rate">5.0</p>
+                    <div class="star">
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                    </div>
+                    <p>(14 reviews)</p>
+                  </div>
+                  <p class="price"><span>$2,440</span>/month</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="apartment">
+              <div class="image">
+                <img
+                  src="./assets/shortlets/apartment3.png"
+                  alt=""
+                  class="shortletImg"
+                />
+                <div class="rooms">
+                  <p>2 Rooms</p>
+                </div>
+              </div>
+              <div class="apartmentDesc">
+                <h4>Room in a boutique building</h4>
+                <p class="address">1995 Broadway, New York</p>
+                <p class="features">
+                  Wifi • Air conditioning • Kitchen • Heating • Smokers •
+                  Parking • Balcony • Animal friendly
+                </p>
+                <div class="tags">
+                  <p class="new">New Building</p>
+                  <p class="common">Common Friends</p>
+                </div>
+                <div class="ratingPrice">
+                  <div class="rating">
+                    <p class="rate">4.0</p>
+                    <div class="star">
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-filled.svg" alt="" />
+                      <img src="./assets/star-empty.svg" alt="" />
+                    </div>
+                    <p>(365 reviews)</p>
+                  </div>
+                  <p class="price"><span>$3,000</span>/month</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="location">
+        
+          <div class="absoluteContainer">
+            <input type="text" class="search" placeholder="Search for hotels" />
+          </div>
+          <div id="map"></div>
+
+        </div>
+      </div>
+    </main> 
+
+    <script>
+      function initMap() {
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    const directionsService = new google.maps.DirectionsService();
+    const map = new google.maps.Map(document.getElementById("map"),{
+        zoom: 14,
+        center: {lat:37.77, lng: -122.447},
+        
+      mapTypeId: "satellite",
+    });
+
+    directionsRenderer.setMap(map);
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+    document.getElementById("mode").addEventListener("change", () => {
+        calculateAndDisplayRoute(directionsService, directionsRenderer);
+    });
+}
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd11Q4BXFUwdGqb-sxEBIdMXYNQEDfTG4&callback=initMap&libraries=&v=weekly"
+async
+></script>
+  </body>
+</html>

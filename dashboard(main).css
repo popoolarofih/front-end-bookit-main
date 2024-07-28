@@ -1,0 +1,146 @@
+/* Import normalize.css */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+/* Your custom styles go here */
+/* ... */
+* {
+  box-sizing: border-box;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10em;
+}
+
+.balanceOverview {
+  display: grid;
+  gap: 1em;
+}
+
+.overview {
+  display: grid;
+  gap: 1em;
+  height: 192px;
+  padding: 16px 16px 8px;
+  background: url("./assets/images/cardBG.png") no-repeat center center / cover;
+  border-radius: 8px;
+  color: white;
+}
+
+
+.overview .balance p {
+  font-size: 12px;
+}
+.overview .balance h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.cardDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  gap: 1em;
+}
+
+.card p {
+  font-size: 10px;
+}
+.card h2 {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 20px;
+}
+
+.actions .action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  gap: 0.5em;
+  color: #022f8e;
+}
+
+.actions img {
+  width: 15px;
+}
+
+.mainActions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(106px, 1fr));
+  gap: 0.7em;
+  place-content: center;
+  place-items: center;
+  text-align: center;
+  font-size: 12px;
+}
+
+.mainActions .action {
+  display: grid;
+  place-items: center;
+  padding: 12px 20px;
+  gap: 0.5em;
+  color: #022f8e;
+}
+
+.mainActions img {
+  width: 20px;
+}
+
+.offers {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.offers h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.availableOffers {
+  display: flex;
+  gap: .5em;
+  justify-content: space-around;
+  align-items: center;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.offer {
+  width: 156px;
+  display: grid;
+  gap: 0.35em;
+  border-radius: 8px;
+}
+.offer .img {
+  position: relative;
+}
+.offer .img .tag {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #017401;
+  color: white;
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.offer h3 {
+  font-size: 14px;
+}
+.offer .price {
+  font-size: 13px;
+}
+.offer .prev-price {
+  font-size: 11px;
+  text-decoration: line-through;
+}

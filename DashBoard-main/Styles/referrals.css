@@ -1,0 +1,94 @@
+.side-section {
+  height: 100vh;
+}
+.toop-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.toop-container h2 {
+  margin: 0;
+}
+
+.toop-container span {
+  font-size: 0.8rem;
+}
+
+.section {
+  padding: 25px;
+  background-color: white;
+  margin-right: 20px;
+  box-shadow: 0px 4px 8px rgb(0, 0, 0, 0.1);
+}
+
+.referal-cont {
+  width: 80%;
+  justify-content: space-between;
+  display: flex;
+  padding: 0 10%;
+  margin-top: 60px;
+}
+
+.point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+}
+
+.point img {
+  width: 40px;
+  background-color: rgb(154, 188, 250);
+  padding: 7px;
+  border-radius: 50%;
+}
+
+.point h5 {
+  margin: 0;
+}
+
+.point span {
+  /* width: 200px; */
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+footer {
+  margin-top: 40px;
+}
+
+footer span {
+  font-size: 0.8rem;
+}
+
+footer h4 {
+  margin: 0;
+}
+
+.box-code {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+.link {
+  background-color: rgb(133, 210, 237);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.link a {
+  color: rgb(82, 82, 227);
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+footer img {
+  width: 25px;
+  cursor: pointer;
+}

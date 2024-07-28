@@ -1,0 +1,192 @@
+.third-container {
+  box-shadow: none;
+}
+
+.third-container .block-1 {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+}
+.third-container .block-2 {
+}
+
+.third-container .block-1 .contents {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.third-container .block-1 .contents .contents-grid .content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.third-container .block-1 .contents .contents-grid .content .details {
+  border: 1px solid gainsboro;
+  padding: 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  justify-content: space-between;
+}
+.third-container .block-1 .contents .contents-grid .content .details span {
+  font-weight: 500;
+}
+.third-container .block-1 .contents .contents-grid .content .details .price {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.third-container .block-1 .contents .contents-grid .content .details .price h3 {
+  font-size: 1.1rem;
+}
+.third-container
+  .block-1
+  .contents
+  .contents-grid
+  .content
+  .details
+  .price
+  small {
+  /* display: inline-block; */
+  color: rgb(53, 148, 53);
+}
+.third-container .block-1 .contents .contents-grid .content .details .price i {
+  /* display: inline-block; */
+}
+.third-container
+  .block-1
+  .contents
+  .contents-grid
+  .content
+  .details
+  .price
+  span {
+  /* display: inline-block; */
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.third-container
+  .block-1
+  .contents
+  .contents-grid
+  .content
+  .details
+  .price
+  .down {
+  color: red;
+}
+
+.block-2 .content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.block-2 .content .booking {
+  display: flex;
+  justify-content: space-between;
+}
+.block-2 .content .booking .left-section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.block-2 .content .booking .left-section img {
+  width: 25px;
+  border-radius: 50%;
+}
+
+.block-2 .content .booking .left-section .details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.block-2 .content .booking .left-section .details .name {
+  font-weight: 600;
+}
+.block-2 .content .booking .left-section .details .date {
+}
+
+.block-2 .content .booking .right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.block-2 .content .booking .right-section .price {
+  color: rgb(7, 147, 7);
+  margin: 0;
+}
+.block-2 .content .booking .right-section small {
+}
+
+.forth-cont {
+  background-color: white;
+  margin-top: 20px;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.forth-cont .title {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gainsboro;
+}
+
+.forth-cont .title h3 {
+  margin: 0;
+}
+.forth-cont .title span {
+  font-size: 0.8rem;
+}
+
+.referrals-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+  padding: 20px;
+}
+
+.referral {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.referral .left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 40%;
+}
+
+.referral .left img {
+  width: 35px;
+}
+
+.referral .left .name {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.referral .middle {
+  width: 50%;
+  font-size: 0.9rem;
+}
+
+.referral .right {
+}
+
+.referral .right a {
+  background-color: rgb(17, 81, 185);
+  color: white;
+  text-decoration: none;
+  padding: 8px 25px;
+  font-size: 0.9rem;
+  border-radius: 20px;
+}

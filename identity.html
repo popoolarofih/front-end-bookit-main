@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set your identity</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    main {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      height: auto;
+      width: 100%;
+      text-align: center;
+    }
+
+    .first_img img {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .Logincontainerone h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #022F8E;
+    }
+
+    .Logincontainerone h4 {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: #666;
+    }
+
+    .signpass-field {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .signpass-field label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .signpass-field input {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .signcontainer {
+      position: relative;
+    }
+
+    #toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .strongstrength-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .strongstrength-bar p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: #333;
+    }
+
+    #strength-bar {
+      height: 5px;
+      background-color: #ccc;
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .strength {
+      flex: 1;
+      background-color: #022F8E;
+      border-radius: 3px;
+    }
+
+    .signcontent {
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    .signcontent h5 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .requirement-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .requirement-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      color: #666;
+    }
+
+    .requirement-list i {
+      margin-right: 0.5rem;
+    }
+
+    .bottom-btn {
+      background-color: #022F8E;
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .bottom-btn:hover {
+      background-color: #001f6e;
+    }
+
+    .valid {
+      color: green;
+    }
+
+    .valid i {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="first_img">
+      <img src="./assets/images/bookitblue.png" alt="Bookit Logo">
+    </div>
+    <div class="Logincontainerone">
+      <h3>Enter your name and set password</h3>
+      <h4>Let us know how to address you</h4>
+    </div>
+    <div class="Logincontainer">
+      <form id="identity-form">
+        <div class="signpass-field">
+          <label for="first">First Name</label>
+          <input type="text" id="first" placeholder="Enter your first name" required>
+        </div>
+        <div class="signpass-field">
+          <label for="last">Last Name</label>
+          <input type="text" id="last" placeholder="Enter your last name" required>
+        </div>
+        <div class="signpass-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="signpass-field">
+          <label for="phone">Phone Number</label>
+          <input type="number" id="phone" placeholder="Enter your phone number" required>
+        </div>
+        <div class="signpass-field">
+          <label for="password">Password</label>
+          <div class="signcontainer">
+            <input type="password" id="password" oninput="strengthChecker()" required>
+            <span id="toggle" onclick="toggle()">
+              <i class="fas fa-eye"></i>
+            </span>
+            <div class="strongstrength-bar">
+              <p>Password strength</p>
+              <p id="msg"></p>
+            </div>
+            <div id="strength-bar"></div>
+          </div>
+          <div class="signcontent">
+            <h5>Password must include</h5>
+            <ul class="requirement-list">
+              <li><i class="fa-solid fa-circle"></i> <span>At least 8 characters</span></li>
+              <li><i class="fa-solid fa-circle"></i> <span>At least 1 number (0-9)</span></li>
+              <li><i class="fa-solid fa-circle"></i> <span>At least 1 special symbol (!-@)</span></li>
+              <li><i class="fa-solid fa-circle"></i> <span>At least 1 lowercase letter (a-z)</span></li>
+            </ul>
+          </div>
+        </div>
+        <button type="submit" id="submit" class="bottom-btn">Continue</button>
+      </form>
+    </div>
+  </main>
+  <script src="identity.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import { getAuth, EmailAuthProvider, reauthenticateWithCredential, updatePassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAWhVX5KwezdLXUTV898Y1KKbsTfNOU9CU",
+      authDomain: "bookit-e3556.firebaseapp.com",
+      databaseURL: "https://bookit-e3556-default-rtdb.firebaseio.com",
+      projectId: "bookit-e3556",
+      storageBucket: "bookit-e3556.appspot.com",
+      messagingSenderId: "624655882811",
+      appId: "1:624655882811:web:4777086ca8f8e66e495a1e",
+      measurementId: "G-C5N1K2FH2Y"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+
+    document.getElementById('identity-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const firstName = document.getElementById('first').value;
+      const lastName = document.getElementById('last').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const password = document.getElementById('password').value;
+
+      const user = auth.currentUser;
+      if (user) {
+        const credential = EmailAuthProvider.credential(email, "temporaryPassword123");
+        reauthenticateWithCredential(user, credential).then(() => {
+          updatePassword(user, password).then(() => {
+            set(ref(database, 'users/' + user.uid), {
+              firstName: firstName,
+              lastName: lastName,
+              phone: phone,
+            }).then(() => {
+              alert('Identity set successfully!');
+              window.location.href = 'login.html';
+            }).catch((error) => {
+              alert(error.message);
+            });
+          }).catch((error) => {
+            alert(error.message);
+          });
+        }).catch((error) => {
+          alert(error.message);
+        });
+      } else {
+        alert('No authenticated user found.');
+      }
+    });
+  </script>
+  <script>
+    // Toggle password visibility
+    function toggle() {
+      const passwordInput = document.getElementById('password');
+      const toggleIcon = document.getElementById('toggle').querySelector('i');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+      }
+    }
+
+    // Password strength checker
+    let parameters = {
+      count: false,
+      letters: false,
+      numbers: false,
+      special: false,
+    };
+    let strengthBar = document.getElementById("strength-bar");
+    let msg = document.getElementById("msg");
+
+    function strengthChecker() {
+      let password = document.getElementById("password").value;
+
+      parameters.letters = /[A-Za-z]+/.test(password);
+      parameters.numbers = /[0-9]+/.test(password);
+      parameters.special = /[!\"$%&/()=?@~`\\.\';:+=^*_-]+/.test(password);
+      parameters.count = password.length > 7;
+
+      let barLength = Object.values(parameters).filter(value => value);
+
+      strengthBar.innerHTML = "";
+      for (let i in barLength) {
+        let span = document.createElement("span");
+        span.classList.add("strength");
+        strengthBar.appendChild(span);
+      }
+
+      let spanRef = document.getElementsByClassName("strength");
+      for (let i = 0; i < spanRef.length; i++) {
+        switch (spanRef.length - 1) {
+          case 0:
+          case 1:
+            spanRef[i].style.background = "#ff4d4d";
+            msg.textContent = "Weak";
+            break;
+          case 2:
+            spanRef[i].style.background = "#ffad33";
+            msg.textContent = "Moderate";
+            break;
+          case 3:
+            spanRef[i].style.background = "#00b300";
+            msg.textContent = "Strong";
+            break;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

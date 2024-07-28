@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Listing</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main class="no-padding" style="background-color: var(--secondary-color);">
+    <section class="Adminmain-wrapper">
+      <h1 class="Adminblue">Payment Method</h1>
+      <div class="Admincard Adminsettings-wrapper mt-20">
+        <aside>
+          <a href="./AdminSettings.html" class="Admingray">My profile</a>
+          <a href="./Adminpayment.html" class="secondary-btn blue">Payment Method</a>
+        </aside>
+        <div class="settings-content">
+          <h3>Personal Information</h3>
+          <p class="Admingray">Update your billing details and address.</p>
+          <div class="Adminflex gap-20 Adminsettings-section">
+           <img src="../../assets/images/dashboardimg.png" alt="">
+            <div>
+              <h3>Abiola Williams</h3>
+              <p class="Admingray">Lecturer</p>
+              <p class="Admingray">Agege, Lagos</p>
+            </div>
+          </div>
+
+          <div class=" gap-20">
+            <h3>Personal Information</h3>
+            <form class="mt-12">
+              <div>
+                <label for="">Name on your Card</label>
+                <input type="text" placeholder="William Abiola">
+              </div>
+              <div>
+                <label for="">Expiry Date</label>
+                <input type="text" placeholder="02/2026">
+              </div>
+              <div>
+                <label for="">Card Number</label>
+                <div class="Admininput">
+                  <img src="../../assets/icons/mastercard.svg" width="20px" alt="">
+                  <input type="text" placeholder="2435 4564 7464 2345">
+                </div>
+              </div>
+              <div>
+                <label for="">CVV</label>
+                <input type="password" placeholder="000">
+              </div>
+            </form>
+          </div>
+
+          <div class="Adminsettings-section mt-12 items-center">
+            <div class="Adminsettings-info">
+              <div>
+                <h3>Contact Details</h3>
+                <p class="Admingray">Where should invoices be sent</p>
+              </div>
+
+              <div class="">
+                <div class="Adminflex gap-6">
+                  <input type="radio" name="address" id="" class="w-fit">
+                  <div>
+                    <h5>Send to existing email</h5>
+                    <p>williamabiola@gmail.com</p>
+                  </div>
+                </div>
+                <div class="Adminflex gap-6 mt-12">
+                  <input type="radio" class="w-fit" name="address" id="">
+                  <div>
+                    <h5>Add another email address</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="Adminsettings-section mt-12 items-center">
+            <div class="Adminsettings-info">
+              <div>
+                <h3>Billing cycle</h3>
+                <form action="/action_page.php">
+                  <label for="cars">frequency at wbich u get paid:</label>
+                  <select name="cars" id="cars">
+                    <option value="volvo">daily</option>
+                    <option value="saab">weekly</option>
+                    <option value="opel">Monthly</option>
+                    <option value="audi"  type="submit">Hourly</option>
+                  </select>
+                  <br><br>
+              
+                </form>
+                
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

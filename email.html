@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter your Email</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <main>
+    <div class="first_img">
+      <img src="./assets/images/bookitblue.png" alt="Bookit Logo">
+    </div>
+    <div class="Logincontainerone">
+      <h3>Please enter your email address</h3>
+      <h4>A link will be sent to you to verify this email</h4>
+    </div>
+    <div class="Logincontainer">
+      <form id="email-form" action="#" method="post">
+        <label for="email">Email address</label>
+        <div class="Loginflex">
+          <img src="./images/icons/email.svg" width="20px" alt="Email Icon">
+          <input type="email" id="email" placeholder="e.g yourname@gmail.com" required>
+        </div>
+        <button type="submit" id="signup" class="bottom-btn">Continue</button>
+      </form>
+    </div>
+  </main>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAWhVX5KwezdLXUTV898Y1KKbsTfNOU9CU",
+      authDomain: "bookit-e3556.firebaseapp.com",
+      databaseURL: "https://bookit-e3556-default-rtdb.firebaseio.com",
+      projectId: "bookit-e3556",
+      storageBucket: "bookit-e3556.appspot.com",
+      messagingSenderId: "624655882811",
+      appId: "1:624655882811:web:4777086ca8f8e66e495a1e",
+      measurementId: "G-C5N1K2FH2Y"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    document.getElementById('email-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+
+      createUserWithEmailAndPassword(auth, email, "temporaryPassword123")
+        .then((userCredential) => {
+          sendEmailVerification(auth.currentUser)
+            .then(() => {
+              alert('Verification email sent. Please check your inbox.');
+              window.location.href = 'identity.html';
+            });
+        })
+        .catch((error) => {
+          console.error(error);
+          alert(error.message);
+        });
+    });
+  </script>
+</body>
+</html>

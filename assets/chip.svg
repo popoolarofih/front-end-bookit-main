@@ -1,0 +1,14 @@
+<svg width="47" height="32" viewBox="0 0 47 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.0195312" y="0.866211" width="46.6757" height="30.3282" rx="6.51234" fill="url(#paint0_radial_603_2580)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.3581 1.16895L18.1719 9.09472C18.1719 9.09472 20.2463 16.0298 18.1719 21.9741L23.3581 30.8906L28.5442 21.9741C28.5442 21.9741 26.4698 17.0205 28.5442 9.09472C28.5442 9.09472 23.3581 1.16895 23.3581 1.16895Z" stroke="#C7C7B6" stroke-width="1.69321" stroke-linejoin="bevel"/>
+<path d="M0.0195313 9.4586H18.1712" stroke="#C7C7B6" stroke-width="1.69321" stroke-linejoin="bevel"/>
+<path d="M28.0234 9.4586H46.6937" stroke="#C7C7B6" stroke-width="1.69321" stroke-linejoin="bevel"/>
+<path d="M0.0195313 21.5904H18.1712" stroke="#C7C7B6" stroke-width="1.69321" stroke-linejoin="bevel"/>
+<path d="M28.0234 21.5904H46.6937" stroke="#C7C7B6" stroke-width="1.69321" stroke-linejoin="bevel"/>
+<defs>
+<radialGradient id="paint0_radial_603_2580" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(26.8231 11.9138) rotate(142.018) scale(31.3293 30.9083)">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#DDDCDA"/>
+</radialGradient>
+</defs>
+</svg>

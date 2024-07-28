@@ -1,0 +1,25 @@
+.content-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(20, 117, 196);
+}
+
+.content-cont img {
+  width: 80px;
+}
+
+.content-cont span {
+  font-size: 0.8rem;
+}
+
+.content-cont a {
+  color: white;
+  background-color: rgb(20, 117, 196);
+  text-decoration: none;
+  padding: 8px 20px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  margin-top: 10px;
+}
