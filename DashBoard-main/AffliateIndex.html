@@ -537,33 +537,39 @@
                 const balance = referrals * 500;
 
                 if (balance > 0) {
-                    // Use Paystack to process withdrawal
-                    const handler = PaystackPop.setup({
-                        key: 'pk_live_ab995f451253aaca1a9c05a5698e4637326eb0df', 
-                        email: user.email, // Use the user's email
-                        amount: balance * 100, // Convert to kobo
-                        currency: "NGN",
-                        callback: function(response) {
-                            if (response.status === 'success') {
-                                // Payment successful, update balance in Firebase
-                                update(userRef, { referrals: 0 }).then(() => {
-                                    alert(`Withdrawal successful. Amount: NGN ${balance}`);
-                                    referralCountElement.textContent = 'Referrals: 0';
-                                    balanceElement.textContent = 'NGN 0';
-                                }).catch((error) => {
-                                    console.error('Error updating user data:', error);
-                                    alert('An error occurred while updating your balance. Please try again later.');
-                                });
-                            } else {
-                                alert('Withdrawal failed. Please try again.');
-                            }
-                        },
-                        onClose: function() {
-                            alert('Withdrawal process canceled');
-                        }
-                    });
+                    // Collect user's account details
+                    const recipientAccountNumber = prompt('Enter your bank account number:');
+                    const recipientBankCode = prompt('Enter your bank code:');
 
-                    handler.openIframe();
+                    // Send request to server to process withdrawal
+                    fetch('/withdraw', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            userId: user.uid,
+                            amount: balance,
+                            recipientAccountNumber,
+                            recipientBankCode
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(data.message);
+                            update(userRef, { referrals: 0 }).then(() => {
+                                referralCountElement.textContent = 'Referrals: 0';
+                                balanceElement.textContent = 'NGN 0';
+                            });
+                        } else {
+                            alert('Withdrawal failed. Please try again.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error initiating withdrawal:', error);
+                        alert('An error occurred while processing your withdrawal. Please try again later.');
+                    });
                 } else {
                     alert('No balance to withdraw.');
                 }
