@@ -424,159 +424,159 @@
       };
 
       const app = initializeApp(firebaseConfig);
-      const auth = getAuth();
-      const database = getDatabase(app);
+    const auth = getAuth();
+    const database = getDatabase(app);
 
-      // Reference to the HTML elements
-      const userNameElement = document.getElementById('userName');
-      const userPhoneElement = document.getElementById('userPhone');
-      const affiliateLinkInput = document.getElementById('affiliateLink');
-      const copyButton = document.getElementById('copyButton');
-      const telegramIcon = document.getElementById('telegram');
-      const whatsappIcon = document.getElementById('whatsapp');
-      const instagramIcon = document.getElementById('instagram');
-      const referralCountElement = document.getElementById('referralCount');
-      const balanceElement = document.getElementById('balance');
-      const withdrawButton = document.getElementById('withdrawButton');
-      const toggleIcon = document.getElementById('toggle-icon');
+    // Reference to the HTML elements
+    const userNameElement = document.getElementById('userName');
+    const userPhoneElement = document.getElementById('userPhone');
+    const affiliateLinkInput = document.getElementById('affiliateLink');
+    const copyButton = document.getElementById('copyButton');
+    const telegramIcon = document.getElementById('telegram');
+    const whatsappIcon = document.getElementById('whatsapp');
+    const instagramIcon = document.getElementById('instagram');
+    const referralCountElement = document.getElementById('referralCount');
+    const balanceElement = document.getElementById('balance');
+    const withdrawButton = document.getElementById('withdrawButton');
+    const toggleIcon = document.getElementById('toggle-icon');
 
-      let currentBalance = 0;
+    let currentBalance = 0;
 
-      // Function to fetch user data
-      function fetchUserData(user) {
-          const userRef = ref(database, 'users/' + user.uid);
+    // Function to fetch user data
+    function fetchUserData(user) {
+        const userRef = ref(database, 'users/' + user.uid);
 
-          // Fetch user data from Firebase
-          get(userRef).then((snapshot) => {
-              if (snapshot.exists()) {
-                  const userData = snapshot.val();
-                  const userName = `${userData.firstName} ${userData.lastName}`;
-                  const userPhone = userData.phone;
-                  const username = `${userData.firstName}${userData.lastName}`; // Create the username part for the link
-                  const affiliateLink = `https://front-end-bookit-main.vercel.app/${username}`;
-                  const referrals = userData.referrals || 0;
-                  currentBalance = referrals * 500;
+        // Fetch user data from Firebase
+        get(userRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                const userData = snapshot.val();
+                const userName = `${userData.firstName} ${userData.lastName}`;
+                const userPhone = userData.phone;
+                const username = `${userData.firstName}${userData.lastName}`; // Create the username part for the link
+                const affiliateLink = `https://front-end-bookit-main.vercel.app/affiliate.html?username=${username}`;
+                const referrals = userData.referrals || 0;
+                currentBalance = referrals * 500;
 
-                  // Update HTML elements with user data
-                  userNameElement.textContent = `Name: ${userName}`;
-                  userPhoneElement.textContent = `Phone: ${userPhone}`;
-                  affiliateLinkInput.value = affiliateLink;
-                  referralCountElement.textContent = `Referrals: ${referrals}`;
-                  balanceElement.textContent = 'NGN ****';
-              } else {
-                  console.log('No user data found.');
-              }
-          }).catch((error) => {
-              console.error('Error fetching user data:', error);
-          });
-      }
+                // Update HTML elements with user data
+                userNameElement.textContent = `Name: ${userName}`;
+                userPhoneElement.textContent = `Phone: ${userPhone}`;
+                affiliateLinkInput.value = affiliateLink;
+                referralCountElement.textContent = `Referrals: ${referrals}`;
+                balanceElement.textContent = 'NGN ****';
+            } else {
+                console.log('No user data found.');
+            }
+        }).catch((error) => {
+            console.error('Error fetching user data:', error);
+        });
+    }
 
-      // Handle authentication state changes
-      onAuthStateChanged(auth, (user) => {
-          if (user) {
-              fetchUserData(user); // Fetch and update user data and affiliate link
-          } else {
-              console.log('No user is signed in.');
-          }
-      });
+    // Handle authentication state changes
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            fetchUserData(user); // Fetch and update user data and affiliate link
+        } else {
+            console.log('No user is signed in.');
+        }
+    });
 
-      // Copy link to clipboard
-      copyButton.addEventListener('click', () => {
-          affiliateLinkInput.select();
-          document.execCommand('copy');
-          alert('Affiliate link copied to clipboard!');
-      });
+    // Copy link to clipboard
+    copyButton.addEventListener('click', () => {
+        affiliateLinkInput.select();
+        document.execCommand('copy');
+        alert('Affiliate link copied to clipboard!');
+    });
 
-      // Share via social media
-      telegramIcon.addEventListener('click', () => {
-          const url = encodeURIComponent(affiliateLinkInput.value);
-          window.open(`https://t.me/share/url?url=${url}`, '_blank');
-      });
+    // Share via social media
+    telegramIcon.addEventListener('click', () => {
+        const url = encodeURIComponent(affiliateLinkInput.value);
+        window.open(`https://t.me/share/url?url=${url}`, '_blank');
+    });
 
-      whatsappIcon.addEventListener('click', () => {
-          const url = encodeURIComponent(affiliateLinkInput.value);
-          window.open(`https://wa.me/?text=${url}`, '_blank');
-      });
+    whatsappIcon.addEventListener('click', () => {
+        const url = encodeURIComponent(affiliateLinkInput.value);
+        window.open(`https://wa.me/?text=${url}`, '_blank');
+    });
 
-      instagramIcon.addEventListener('click', () => {
-          alert('Instagram sharing is not supported directly via URL. You can manually share on Instagram.');
-      });
+    instagramIcon.addEventListener('click', () => {
+        alert('Instagram sharing is not supported directly via URL. You can manually share on Instagram.');
+    });
 
-      // Function to toggle balance visibility
-      function toggleBalance() {
-          if (balanceElement.textContent === 'NGN ****') {
-              balanceElement.textContent = `NGN ${currentBalance}`;
-              toggleIcon.classList.remove('fa-eye-slash');
-              toggleIcon.classList.add('fa-eye');
-          } else {
-              balanceElement.textContent = 'NGN ****';
-              toggleIcon.classList.remove('fa-eye');
-              toggleIcon.classList.add('fa-eye-slash');
-          }
-      }
+    // Function to toggle balance visibility
+    function toggleBalance() {
+        if (balanceElement.textContent === 'NGN ****') {
+            balanceElement.textContent = `NGN ${currentBalance}`;
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        } else {
+            balanceElement.textContent = 'NGN ****';
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        }
+    }
 
-      toggleIcon.addEventListener('click', toggleBalance);
+    toggleIcon.addEventListener('click', toggleBalance);
 
-      // Function to handle withdrawal
-      function handleWithdraw(user) {
-          const userRef = ref(database, 'users/' + user.uid);
+    // Function to handle withdrawal
+    function handleWithdraw(user) {
+        const userRef = ref(database, 'users/' + user.uid);
 
-          get(userRef).then((snapshot) => {
-              if (snapshot.exists()) {
-                  const userData = snapshot.val();
-                  const referrals = userData.referrals || 0;
-                  const balance = referrals * 500;
+        get(userRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                const userData = snapshot.val();
+                const referrals = userData.referrals || 0;
+                const balance = referrals * 500;
 
-                  if (balance > 0) {
-                      // Use Paystack to process withdrawal
-                      const handler = PaystackPop.setup({
-                          key: 'YOUR_PAYSTACK_PUBLIC_KEY', // Replace with your Paystack public key
-                          email: user.email, // Use the user's email
-                          amount: balance * 100, // Convert to kobo
-                          currency: "NGN",
-                          callback: async function(response) {
-                              // Payment successful, update balance in Firebase
-                              await update(userRef, { referrals: 0 });
-                              alert(`Withdrawal successful. Amount: NGN ${balance}`);
-                              referralCountElement.textContent = `Referrals: 0`;
-                              balanceElement.textContent = 'NGN 0';
-                          },
-                          onClose: function() {
-                              alert('Withdrawal process canceled');
-                          }
-                      });
+                if (balance > 0) {
+                    // Use Paystack to process withdrawal
+                    const handler = PaystackPop.setup({
+                        key: 'sk_live_9a828cc76bd581cd5a304f67a2c1fb6f8e279084', // Replace with your Paystack public key
+                        email: user.email, // Use the user's email
+                        amount: balance * 100, // Convert to kobo
+                        currency: "NGN",
+                        callback: async function(response) {
+                            // Payment successful, update balance in Firebase
+                            await update(userRef, { referrals: 0 });
+                            alert(`Withdrawal successful. Amount: NGN ${balance}`);
+                            referralCountElement.textContent = `Referrals: 0`;
+                            balanceElement.textContent = 'NGN 0';
+                        },
+                        onClose: function() {
+                            alert('Withdrawal process canceled');
+                        }
+                    });
 
-                      handler.openIframe();
-                  } else {
-                      alert('No balance to withdraw.');
-                  }
-              } else {
-                  console.log('No user data found.');
-              }
-          }).catch((error) => {
-              console.error('Error fetching user data:', error);
-          });
-      }
+                    handler.openIframe();
+                } else {
+                    alert('No balance to withdraw.');
+                }
+            } else {
+                console.log('No user data found.');
+            }
+        }).catch((error) => {
+            console.error('Error fetching user data:', error);
+        });
+    }
 
-      // Set up event listener for withdraw button
-      withdrawButton.addEventListener('click', () => {
-          onAuthStateChanged(auth, (user) => {
-              if (user) {
-                  handleWithdraw(user);
-              } else {
-                  console.log('No user is signed in.');
-              }
-          });
-      });
+    // Set up event listener for withdraw button
+    withdrawButton.addEventListener('click', () => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                handleWithdraw(user);
+            } else {
+                console.log('No user is signed in.');
+            }
+        });
+    });
 
-      // Fetch user data on auth state change
-      onAuthStateChanged(auth, (user) => {
-          if (user) {
-              fetchUserData(user);
-          } else {
-              console.log('No user is signed in.');
-          }
-      });
+    // Fetch user data on auth state change
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            fetchUserData(user);
+        } else {
+            console.log('No user is signed in.');
+        }
+    });
   </script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="scriptone.js"></script>

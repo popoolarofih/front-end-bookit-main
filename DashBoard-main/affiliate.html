@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Page</title>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAWhVX5KwezdLXUTV898Y1KKbsTfNOU9CU",
+          authDomain: "bookit-e3556.firebaseapp.com",
+          databaseURL: "https://bookit-e3556-default-rtdb.firebaseio.com",
+          projectId: "bookit-e3556",
+          storageBucket: "bookit-e3556.appspot.com",
+          messagingSenderId: "624655882811",
+          appId: "1:624655882811:web:4777086ca8f8e66e495a1e",
+          measurementId: "G-C5N1K2FH2Y"
+      };
+      const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Function to fetch user data
+        function fetchUserData(username) {
+            console.log('Fetching data for username:', username);
+            const userRef = ref(database, 'users/' + username);
+
+            get(userRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    console.log('User data:', userData);
+                    document.getElementById('userName').textContent = `Name: ${userData.firstName} ${userData.lastName}`;
+                    document.getElementById('userPhone').textContent = `Phone: ${userData.phone}`;
+                } else {
+                    console.log('No user data found for:', username);
+                }
+            }).catch((error) => {
+                console.error('Error fetching user data:', error);
+            });
+        }
+
+        // Get the username from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        console.log('Username:', username);
+
+        // Fetch user data when the page loads
+        window.onload = () => {
+            if (username) {
+                fetchUserData(username);
+            } else {
+                console.log('No username provided in the URL.');
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="userName"></div>
+    <div id="userPhone"></div>
+</body>
+</html>
