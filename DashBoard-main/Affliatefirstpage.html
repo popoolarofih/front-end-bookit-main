@@ -57,73 +57,76 @@ const firebaseConfig = {
     measurementId: "G-C5N1K2FH2Y"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const database = getDatabase(app);
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase(app);
 
-// Reference to the payment button
-const payButton = document.getElementById('payButton');
+        // Reference to the payment button
+        const payButton = document.getElementById('payButton');
 
-// Function to initialize Paystack payment
-function payWithPaystack(user) {
-    let handler = PaystackPop.setup({
-        key: 'pk_live_ab995f451253aaca1a9c05a5698e4637326eb0df', // Replace with your Paystack public key
-        email: user.email,
-        amount: 100000, // Amount in kobo
-        currency: "NGN",
-        ref: 'TX' + Math.floor((Math.random() * 1000000000) + 1), // Generate a random reference number
-        callback: function(response) {
-            // Successful payment
-            console.log('Payment successful. Transaction reference:', response.reference);
-            // Update user's payment status in Firebase
-            const userRef = ref(database, 'users/' + user.uid);
-            set(userRef, {
-                paymentStatus: 'paid',
-                // Include any other user data you have
-            }).then(() => {
-                window.location.href = 'AffliateIndex.html'; // Redirect to the affiliate dashboard
-            }).catch((error) => {
-                console.error('Error updating payment status:', error);
+        // Function to initialize Paystack payment
+        function payWithPaystack(user) {
+            let handler = PaystackPop.setup({
+                key: 'pk_live_ab995f451253aaca1a9c05a5698e4637326eb0df', // Replace with your Paystack public key
+                email: user.email,
+                amount: 100000, // Amount in kobo
+                currency: "NGN",
+                ref: 'TX' + Math.floor((Math.random() * 1000000000) + 1), // Generate a random reference number
+                callback: function(response) {
+                    // Successful payment
+                    console.log('Payment successful. Transaction reference:', response.reference);
+                    // Update user's payment status and other details in Firebase
+                    const userRef = ref(database, 'users/' + user.uid);
+                    set(userRef, {
+                        paymentStatus: 'paid',
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        phone: user.phone
+                    }).then(() => {
+                        window.location.href = 'AffliateIndex.html'; // Redirect to the affiliate dashboard
+                    }).catch((error) => {
+                        console.error('Error updating payment status:', error);
+                    });
+                },
+                onClose: function() {
+                    console.log('Payment window closed.');
+                }
             });
-        },
-        onClose: function() {
-            console.log('Payment window closed.');
+            handler.openIframe();
         }
-    });
-    handler.openIframe();
-}
 
-// Event listener for the payment button
-payButton.addEventListener('click', () => {
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            // User is signed in
-            checkPaymentStatus(user.uid);
-        } else {
-            // No user is signed in
-            alert('You need to sign in first.');
-        }
-    });
-});
+        // Event listener for the payment button
+        payButton.addEventListener('click', () => {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in
+                    checkPaymentStatus(user);
+                } else {
+                    // No user is signed in
+                    alert('You need to sign in first.');
+                }
+            });
+        });
 
-function checkPaymentStatus(uid) {
-    const userRef = ref(database, 'users/' + uid);
-    get(userRef).then((snapshot) => {
-        if (snapshot.exists()) {
-            const userData = snapshot.val();
-            if (userData.paymentStatus === 'paid') {
-                window.location.href = 'AffliateIndex.html';
-            } else {
-                payWithPaystack(userData);
-            }
-        } else {
-            alert('User data not found.');
+        function checkPaymentStatus(user) {
+            const userRef = ref(database, 'users/' + user.uid);
+            get(userRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    if (userData.paymentStatus === 'paid') {
+                        window.location.href = 'AffliateIndex.html';
+                    } else {
+                        userData.uid = user.uid; // Add uid to userData object
+                        userData.email = user.email; // Add email to userData object
+                        payWithPaystack(userData);
+                    }
+                } else {
+                    alert('User data not found.');
+                }
+            }).catch((error) => {
+                console.error('Error fetching user data:', error);
+            });
         }
-    }).catch((error) => {
-        console.error('Error fetching user data:', error);
-    });
-}
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
