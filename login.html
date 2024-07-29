@@ -41,7 +41,7 @@
   </main>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-    import { getDatabase, ref, update } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+    import { getDatabase, ref, update, get } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
     import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 
     const firebaseConfig = {
@@ -72,20 +72,30 @@
           update(ref(database, 'users/' + user.uid), {
             last_login: dt,
           });
-          alert('Welcome Back');
-          window.location.href = 'DashBoard-main/Affliatefirstpage.html';
+          checkPaymentStatus(user.uid);
         })
         .catch((error) => {
           alert('Email or Password is incorrect');
         });
     });
 
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const uid = user.uid;
-      } else {
-      }
-    });
+    function checkPaymentStatus(uid) {
+      const userRef = ref(database, 'users/' + uid);
+      get(userRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const userData = snapshot.val();
+          if (userData.paymentStatus === 'paid') {
+            window.location.href = 'DashBoard-main/AffliateIndex.html';
+          } else {
+            window.location.href = 'DashBoard-main/Affliatefirstpage.html';
+          }
+        } else {
+          alert('User data not found.');
+        }
+      }).catch((error) => {
+        console.error('Error fetching user data:', error);
+      });
+    }
   </script>
   <script src="identity.js"></script>
 </body>

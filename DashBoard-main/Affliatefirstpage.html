@@ -99,7 +99,7 @@ payButton.addEventListener('click', () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             // User is signed in
-            payWithPaystack(user);
+            checkPaymentStatus(user.uid);
         } else {
             // No user is signed in
             alert('You need to sign in first.');
@@ -107,6 +107,23 @@ payButton.addEventListener('click', () => {
     });
 });
 
+function checkPaymentStatus(uid) {
+    const userRef = ref(database, 'users/' + uid);
+    get(userRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            if (userData.paymentStatus === 'paid') {
+                window.location.href = 'AffliateIndex.html';
+            } else {
+                payWithPaystack(userData);
+            }
+        } else {
+            alert('User data not found.');
+        }
+    }).catch((error) => {
+        console.error('Error fetching user data:', error);
+    });
+}
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
