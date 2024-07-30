@@ -284,7 +284,7 @@
         </div>
 
         <!-- NOMINATION TRACKING FOR MOBILE VIEW -->
-                <div class="" style="box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.2); border-radius: 4px; padding: 15px;">
+    <div class="" style="box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.2); border-radius: 4px; padding: 15px;">
         <div class="affliate-header">Nomination Tracking</div>
             <p class="aflt-subheader">For Tracking Referrals</p>
             <div class="btn-group mb-3" role="group">
@@ -295,7 +295,7 @@
               <button type="button" class="btn btn-outline-secondary">1y</button>
             </div>
             <div class="rounded border">
-              <canvas id="myChart" style="width: 100%; height: 400px;"></canvas>
+              <canvas id="myChart"></canvas>
               <div class="tooltip" id="tooltip"></div>
             </div>
             <div class="d-flex justify-content-between mt-3">
@@ -506,7 +506,7 @@
           const userPhone = userData.phone;
           const username = `${userData.firstName}${userData.lastName}`;
           const affiliateLink = `https://front-end-bookit-main.vercel.app/affiliate.html?username=${username}`;
-          const referrals = userData.referrals || 2000;
+          const referrals = userData.referrals || 20000;
           currentBalance = referrals * 500;
   
           userNameElement.textContent = `${userName}`;
@@ -534,6 +534,10 @@
       }).catch((error) => {
         console.error('Error fetching user data:', error);
       });
+    }
+    // Function to format number with commas
+    function formatNumberWithCommas(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   
     // Handle authentication state changes
@@ -569,15 +573,15 @@
   
     // Function to toggle balance visibility
     function toggleBalance() {
-      if (balanceElement.textContent === 'NGN ****') {
-        balanceElement.textContent = `NGN ${currentBalance}`;
-        toggleIcon.classList.remove('fa-eye-slash');
-        toggleIcon.classList.add('fa-eye');
-      } else {
-        balanceElement.textContent = 'NGN ****';
-        toggleIcon.classList.remove('fa-eye');
-        toggleIcon.classList.add('fa-eye-slash');
-      }
+        if (balanceElement.textContent === 'NGN ****') {
+            balanceElement.textContent = `NGN ${formatNumberWithCommas(currentBalance)}`;
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        } else {
+            balanceElement.textContent = 'NGN ****';
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        }
     }
   
     toggleIcon.addEventListener('click', toggleBalance);
