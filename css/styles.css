@@ -85,13 +85,14 @@ h4 {
 .primary-btn {
   color: white;
   background: var(--primary-color);
-  padding: 12px 20px;
+  padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   width: 100%;
   font-size: 14px;
+  border-radius: 12px;
 }
 .othersignup {
   background-color: #aaa;
@@ -101,6 +102,7 @@ h4 {
   justify-content: center;
   gap: 10px;
   width: 100%;
+  border-radius: 12px;
   font-size: 14px;
   
 
@@ -116,12 +118,13 @@ h4 {
   color: white;
   background: var(--primary-color);
   display: flex;
-  padding: 12px 20px;
+  padding: 15px 20px;
   align-items: center;
   justify-content: center;
   gap: 10px;
   width: 100%;
   font-size: 14px;
+  border-radius: 12px;
 }
 .bottom-btn a{
   color: white;
@@ -133,11 +136,17 @@ h4 {
   width: 100%;
   font-size: 14px;
 }
-
+.bottom{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .Logincontainer {
   margin-top: 60px;
   display: grid;
   gap: 20px;
+  padding: 20px;
+  padding-top: 0;
 }
 .Logincontainerone {
   display: grid;
@@ -148,6 +157,10 @@ h4 {
 }
 .Logincontainerone a{
 color: #fff;
+text-decoration: none;
+}
+.Logincontainerone>h4{
+  text-decoration: none;
 }
 .primary-btn:disabled {
   background-color: #022F8E50 ;
@@ -306,14 +319,21 @@ p {
   margin-top: 20px;
 }
 
-.strongstrength-bar{
+/* .strongstrength-bar{
 display: flex;
 justify-content: space-between;
+} */
+
+.identity-form{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-
 .signpass-field input {
-border: 1px solid #999;
+border: .5px solid #999;
+padding: 12px 20px;
+border-radius: 12px;
 }
 .signpass-field input:focus {
 border: 2px solid #4285F4;
@@ -415,6 +435,7 @@ form > button{
   border: 1px solid #D0D5DD;
   align-items: center;
   padding: 10px 14px;
+  border-radius: 12px;
 }
 #toggle {
   position: absolute;
@@ -489,6 +510,7 @@ button {
   height: 100%;
   display: grid;
   place-content: center;
+  padding: 20px;
 }
 
 .indexwrapper {
@@ -537,6 +559,9 @@ h4 {
   border: 1px solid #D0D5DD;
   align-items: center;
   padding: 10px 14px;
+  border-radius: 12px;
+  color: #022F8E;
+  font-weight: 600;
 }
 
 label {

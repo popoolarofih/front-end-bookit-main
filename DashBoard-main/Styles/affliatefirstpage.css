@@ -14,15 +14,16 @@ body {
     margin: 0;
     display: grid;
     place-items: center;
-    background: #ffffff;
+    background: #3b395c;
     text-align: center;
 }
 
 .swipercard {
     width: 360px;
+    overflow: hidden;
     padding: 0;
     border-radius: 10px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 44.52%, rgba(0, 0, 0, 0.95) 63.42%);
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0.5) 63.42%, rgba(0, 0, 0, 0) 44.52%, rgba(0, 0, 0, 0.95) 63.42%);
 
 }
 
@@ -31,12 +32,13 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px 0 130px;
+    /* padding: 40px 0 130px; */
 }
 
 .swiper-slide img {
-    height: 170px;
+    height: 100px;
     margin-bottom: 10px;
+   
 }
 
 .swiper-slide h2 {
@@ -106,14 +108,14 @@ body {
     background-position: center;
     background-size: cover;
 }
-.firstslide_details{
+/* .firstslide_details{
     background: linear-gradient( rgba(0, 0, 0, 0) 4.52%, rgba(0, 0, 0, 0.95) 33.42%);
 
     box-shadow: inset 2px 3px 5px #000000, 0px 1px 1px #333;
     transform: translateY(270%);
-    padding: 2px 2px 10px 2px;
+    padding: 12px 12px 10px 2px;
     margin: 0 0 5rem 0;
-}
+} */
 .secondslide{
     min-height: 100vh;
     background-image: url(../Mask\ group.png);
@@ -121,14 +123,21 @@ body {
     background-position: center;
     width: 100%;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 .secondslide_details{
-    background: linear-gradient( rgba(0, 0, 0, 0) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+    background: linear-gradient( rgba(0, 0, 0, 0.3) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
     box-shadow: rgba(0, 0, 0, 0.35) 50px 0px 36px -28px inset;
-    transform: translateY(150%);
-    padding: 2px 2px .5px 2px;
-    margin: 0 0 2rem 0;
+    transform: translateY(100%);
+    display: flex;
+    flex-direction: column;
+    align-content: baseline;
+    /* transform: translateY(150%); */
+    /* height: 480px; */
+
+    /* padding: 2px 12px 5px 2px; */
+    /* margin: 0 0 2rem 0; */
+    /* padding-bottom: 5rem; */
 }
 .secondslide_details h3, ul li{
     color: #f9f9f9;
@@ -146,11 +155,289 @@ body {
 }
 .thirdslide_details{
     background: linear-gradient( rgba(22, 18, 18, 0) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
-    transform: translateY(210%);
+    transform: translateY(270%);
     padding: 2px 2px 1rem 2px;
     margin: 0 0 2rem 0;
 }
 .thirdslide_details button{
     color:  rgba(2, 47, 142, 1);
     background: #f9f9f9;
+    /* padding-bottom: 100px; */
+}
+
+.slide-details{
+
+    background: linear-gradient( rgba(22, 18, 18, 0) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+    transform: translateY(210%);
+    align-items: center;
+    align-self: baseline;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    /* padding: 2px 2px 1rem 2px; */
+    padding: 40px;
+    padding-bottom: 100px;
+    margin: 0 0 2rem 0;
+    margin-top: -170px;
+}
+
+@media screen and (max-width: 360px) {
+    .firstslide{
+        min-height: 100vh;
+        background-image: url(../Mask\ group-1.png);
+        background-attachment: fixed;
+        background-position: center;
+        width: 0%;
+        background-position: center;
+        background-size: cover;
+    }
+    /* .firstslide_details{
+        background: linear-gradient( rgba(0, 0, 0, 0) 4.52%, rgba(0, 0, 0, 0.95) 33.42%);
+    
+        box-shadow: inset 2px 3px 5px #000000, 0px 1px 1px #333;
+        transform: translateY(270%);
+        padding: 12px 12px 10px 2px;
+        margin: 0 0 5rem 0;
+    } */
+    .secondslide{
+        min-height: 100vh;
+        background-image: url(../Mask\ group.png);
+        background-attachment: fixed;
+        background-position: center;
+        width: 100%;
+        background-position: center;
+        background-size: contain;
+    }
+    .secondslide_details{
+        background: linear-gradient( rgba(0, 0, 0, 0.3) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+        box-shadow: rgba(0, 0, 0, 0.35) 50px 0px 36px -28px inset;
+        transform: translateY(100%);
+        display: flex;
+        flex-direction: column;
+        align-content: baseline;
+        /* transform: translateY(150%); */
+        /* height: 480px; */
+    
+        /* padding: 2px 12px 5px 2px; */
+        /* margin: 0 0 2rem 0; */
+        /* padding-bottom: 5rem; */
+    }
+    .secondslide_details h3, ul li{
+        color: #f9f9f9;
+        margin-bottom: 2px;
+    }
+    .thirdslide{
+        min-height: 100vh;
+    
+        background-image: url(../Mask\ group-1.png);
+        background-attachment: fixed;
+        background-position: center;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+    .thirdslide_details{
+        background: linear-gradient( rgba(22, 18, 18, 0) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+        transform: translateY(270%);
+        padding: 2px 2px 1rem 2px;
+        margin: 0 0 2rem 0;
+    }
+    .thirdslide_details button{
+        color:  rgba(2, 47, 142, 1);
+        background: #f9f9f9;
+        /* padding-bottom: 100px; */
+    }
+    
+    .slide-details{
+    
+        background: linear-gradient( rgba(22, 18, 18, 0) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+        transform: translateY(150%);
+        align-items: center;
+        align-self: baseline;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        /* padding: 2px 2px 1rem 2px; */
+        padding: 40px;
+        padding-bottom: 100px;
+        margin: 0 0 2rem 0;
+        margin-top: -170px;
+    }
+    
+}
+
+@media screen and (max-width: 380px) and (min-width: 360px) {
+    .firstslide{
+        min-height: 100vh;
+        background-image: url(../Mask\ group-1.png);
+        background-attachment: fixed;
+        background-position: center;
+        width: 50%;
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+    /* .firstslide_details{
+        background: linear-gradient( rgba(0, 0, 0, 0) 4.52%, rgba(0, 0, 0, 0.95) 33.42%);
+    
+        box-shadow: inset 2px 3px 5px #000000, 0px 1px 1px #333;
+        transform: translateY(270%);
+        padding: 12px 12px 10px 2px;
+        margin: 0 0 5rem 0;
+    } */
+    .secondslide{
+        min-height: 100vh;
+        background-image: url(../Mask\ group.png);
+        background-attachment: fixed;
+        background-position: center;
+        width: 50%;
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+    .secondslide_details{
+        background: linear-gradient( rgba(0, 0, 0, 0.3) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+        box-shadow: rgba(0, 0, 0, 0.35) 50px 0px 36px -28px inset;
+        transform: translateY(90%);
+        display: flex;
+        flex-direction: column;
+        align-content: baseline;
+        /* transform: translateY(150%); */
+        /* height: 480px; */
+    
+        /* padding: 2px 12px 5px 2px; */
+        /* margin: 0 0 2rem 0; */
+        /* padding-bottom: 5rem; */
+    }
+    .secondslide_details h3, ul li{
+        color: #f9f9f9;
+        margin-bottom: 2px;
+    }
+    .thirdslide{
+        min-height: 100vh;
+    
+        background-image: url(../Mask\ group-1.png);
+        background-attachment: fixed;
+        background-position: center;
+        width: 50%;
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+    .thirdslide_details{
+        background: linear-gradient( rgba(22, 18, 18, 0.3) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+        transform: translateY(180%);
+        padding: 2px 2px 60px 2px;
+        margin: 0 0 2rem 0;
+    }
+    .thirdslide_details button{
+        color:  rgba(2, 47, 142, 1);
+        background: #f9f9f9;
+        /* padding-bottom: 100px; */
+    }
+    
+    .slide-details{
+    
+        background: linear-gradient( rgba(22, 18, 18, 0) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+        transform: translateY(180%);
+        align-items: center;
+        align-self: baseline;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        /* padding: 2px 2px 1rem 2px; */
+        padding: 40px;
+        padding-bottom: 100px;
+        margin: 0 0 2rem 0;
+        margin-top: -170px;
+    }
+    
+}
+
+@media screen and (max-width: 430px) and (min-width: 380px){
+    .firstslide{
+        min-height: 100vh;
+        background-image: url(../Mask\ group-1.png);
+        background-attachment: fixed;
+        background-position: center;
+        width: 50%;
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+    /* .firstslide_details{
+        background: linear-gradient( rgba(0, 0, 0, 0) 4.52%, rgba(0, 0, 0, 0.95) 33.42%);
+    
+        box-shadow: inset 2px 3px 5px #000000, 0px 1px 1px #333;
+        transform: translateY(270%);
+        padding: 12px 12px 10px 2px;
+        margin: 0 0 5rem 0;
+    } */
+    .secondslide{
+        min-height: 100vh;
+        background-image: url(../Mask\ group.png);
+        background-attachment: fixed;
+        background-position: center;
+        width: 50%;
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+    .secondslide_details{
+        background: linear-gradient( rgba(0, 0, 0, 0.3) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+        box-shadow: rgba(0, 0, 0, 0.35) 50px 0px 36px -28px inset;
+        transform: translateY(100%);
+        display: flex;
+        flex-direction: column;
+        align-content: baseline;
+        /* transform: translateY(150%); */
+        /* height: 480px; */
+    
+        /* padding: 2px 12px 5px 2px; */
+        /* margin: 0 0 2rem 0; */
+        /* padding-bottom: 5rem; */
+    }
+    .secondslide_details h3, ul li{
+        color: #f9f9f9;
+        margin-bottom: 2px;
+    }
+    .thirdslide{
+        min-height: 100vh;
+    
+        background-image: url(../Mask\ group-1.png);
+        background-attachment: fixed;
+        background-position: center;
+        width: 50%;
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+    .thirdslide_details{
+        background: linear-gradient( rgba(22, 18, 18, 0) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+        transform: translateY(210%);
+        padding: 2px 2px 60px 2px;
+        margin: 0 0 2rem 0;
+    }
+    .thirdslide_details button{
+        color:  rgba(2, 47, 142, 1);
+        background: #f9f9f9;
+        /* padding-bottom: 100px; */
+    }
+    
+    .slide-details{
+    
+        background: linear-gradient( rgba(22, 18, 18, 0) 3.52%, rgba(0, 0, 0, 0.95) 30.42%);
+        transform: translateY(210%);
+        align-items: center;
+        align-self: baseline;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        /* padding: 2px 2px 1rem 2px; */
+        padding: 40px;
+        padding-bottom: 100px;
+        margin: 0 0 2rem 0;
+        margin-top: -170px;
+    }
+    
 }
