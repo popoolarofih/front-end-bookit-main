@@ -5412,6 +5412,8 @@ form {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  z-index: -1;
+  filter: blur(10px);
 }
 .bookitnav > button {
   background-color: white;
@@ -7447,3 +7449,14 @@ a.primary-btn{
 }
 
 /* email */
+
+/* terms_condition css  */
+.terms_condition{
+  margin: 1rem;
+}
+.terms_condition h4{
+margin: 1rem 0 1rem 0;
+}
+.terms_condition p {
+  margin: 2px 2px 10px 0;
+}

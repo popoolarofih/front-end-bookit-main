@@ -406,211 +406,194 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" integrity="sha512-CQBWl4fJHWbryGE+Pc7UAxWMUMNMWzWxF4SQo9CgkJIN1kx6djDQZjh3Y8SZ1d+6I+1zze6Z7kHXO7q3UyZAWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/helpers.js" integrity="sha512-08S2icXl5dFWPl8stSVyzg3W14tTISlNtJekjsQplv326QtsmbEVqL4TFBrRXTdEj8QI5izJFoVaf5KgNDDOMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/helpers.min.js" integrity="sha512-JG3S/EICkp8Lx9YhtIpzAVJ55WGnxT3T6bfiXYbjPRUoN9yu+ZM+wVLDsI/L2BWRiKjw/67d+/APw/CDn+Lm0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="chart.js"></script>
+    <script src="./chart.js"></script>
     <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-      import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-      import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
-  
-      // Firebase configuration
-      const firebaseConfig = {
-          apiKey: "AIzaSyAWhVX5KwezdLXUTV898Y1KKbsTfNOU9CU",
-          authDomain: "bookit-e3556.firebaseapp.com",
-          databaseURL: "https://bookit-e3556-default-rtdb.firebaseio.com",
-          projectId: "bookit-e3556",
-          storageBucket: "bookit-e3556.appspot.com",
-          messagingSenderId: "624655882811",
-          appId: "1:624655882811:web:4777086ca8f8e66e495a1e",
-          measurementId: "G-C5N1K2FH2Y"
-      };
-      const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
-    const database = getDatabase(app);
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
 
-    // Reference to the HTML elements
-    const userNameElement = document.getElementById('userName');
-    const userPhoneElement = document.getElementById('userPhone');
-    const affiliateLinkInput = document.getElementById('affiliateLink');
-    const copyButton = document.getElementById('copyButton');
-    const telegramIcon = document.getElementById('telegram');
-    const whatsappIcon = document.getElementById('whatsapp');
-    const instagramIcon = document.getElementById('instagram');
-    const referralCountElement = document.getElementById('referralCount');
-    const balanceElement = document.getElementById('balance');
-    const withdrawButton = document.getElementById('withdrawButton');
-    const toggleIcon = document.getElementById('toggle-icon');
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAWhVX5KwezdLXUTV898Y1KKbsTfNOU9CU",
+    authDomain: "bookit-e3556.firebaseapp.com",
+    databaseURL: "https://bookit-e3556-default-rtdb.firebaseio.com",
+    projectId: "bookit-e3556",
+    storageBucket: "bookit-e3556.appspot.com",
+    messagingSenderId: "624655882811",
+    appId: "1:624655882811:web:4777086ca8f8e66e495a1e",
+    measurementId: "G-C5N1K2FH2Y"
+};
 
-    let currentBalance = 0;
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const database = getDatabase(app);
 
-    // Function to fetch user data
-    function fetchUserData(user) {
-        const userRef = ref(database, 'users/' + user.uid);
+// Reference to the HTML elements
+const userNameElement = document.getElementById('userName');
+const userPhoneElement = document.getElementById('userPhone');
+const affiliateLinkInput = document.getElementById('affiliateLink');
+const copyButton = document.getElementById('copyButton');
+const telegramIcon = document.getElementById('telegram');
+const whatsappIcon = document.getElementById('whatsapp');
+const instagramIcon = document.getElementById('instagram');
+const referralCountElement = document.getElementById('referralCount');
+const balanceElement = document.getElementById('balance');
+const withdrawButton = document.getElementById('withdrawButton');
+const toggleIcon = document.getElementById('toggle-icon');
 
-        // Fetch user data from Firebase
-        get(userRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                const userData = snapshot.val();
-                const userName = `${userData.firstName} ${userData.lastName}`;
-                const userPhone = userData.phone;
-                const username = `${userData.firstName}${userData.lastName}`; // Create the username part for the link
-                const affiliateLink = `https://front-end-bookit-main.vercel.app/affiliate.html?username=${username}`;
-                const referrals = userData.referrals || 1;
-                currentBalance = referrals * 500;
+let currentBalance = 0;
 
-                console.log('User data:', userData); // Debugging statement
-                console.log('Current balance:', currentBalance); // Debugging statement
+// Function to fetch user data
+function fetchUserData(user) {
+    const userRef = ref(database, 'users/' + user.uid);
 
-                // Update HTML elements with user data
-                userNameElement.textContent = `${userName}`;
-                userPhoneElement.textContent = `${userPhone}`;
-                affiliateLinkInput.value = affiliateLink;
-                referralCountElement.textContent = `Referrals: ${referrals}`;
-                balanceElement.textContent = 'NGN ****';
+    get(userRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const userName = `${userData.firstName} ${userData.lastName}`;
+            const userPhone = userData.phone;
+            const username = `${userData.firstName}${userData.lastName}`;
+            const affiliateLink = `https://front-end-bookit-main.vercel.app/affiliate.html?username=${username}`;
+            const referrals = userData.referrals || 1;
+            currentBalance = referrals * 500;
 
-                // Additional debugging statements to check element updates
-                console.log('Updated userNameElement:', userNameElement.textContent);
-                console.log('Updated userPhoneElement:', userPhoneElement.textContent);
-                console.log('Updated referralCountElement:', referralCountElement.textContent);
-                console.log('Updated balanceElement:', balanceElement.textContent);
-            } else {
-                console.log('No user data found.');
-            }
-        }).catch((error) => {
-            console.error('Error fetching user data:', error);
-        });
-    }
-
-    // Handle authentication state changes
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            fetchUserData(user); // Fetch and update user data and affiliate link
-        } else {
-            console.log('No user is signed in.');
-        }
-    });
-
-    // Copy link to clipboard
-    copyButton.addEventListener('click', () => {
-        affiliateLinkInput.select();
-        document.execCommand('copy');
-        alert('Affiliate link copied to clipboard!');
-    });
-
-    // Share via social media
-    telegramIcon.addEventListener('click', () => {
-        const url = encodeURIComponent(affiliateLinkInput.value);
-        window.open(`https://t.me/share/url?url=${url}`, '_blank');
-    });
-
-    whatsappIcon.addEventListener('click', () => {
-        const url = encodeURIComponent(affiliateLinkInput.value);
-        window.open(`https://wa.me/?text=${url}`, '_blank');
-    });
-
-    instagramIcon.addEventListener('click', () => {
-        alert('Instagram sharing is not supported directly via URL. You can manually share on Instagram.');
-    });
-
-    // Function to toggle balance visibility
-    function toggleBalance() {
-        if (balanceElement.textContent === 'NGN ****') {
-            balanceElement.textContent = `NGN ${currentBalance}`;
-            toggleIcon.classList.remove('fa-eye-slash');
-            toggleIcon.classList.add('fa-eye');
-        } else {
+            userNameElement.textContent = `${userName}`;
+            userPhoneElement.textContent = `${userPhone}`;
+            affiliateLinkInput.value = affiliateLink;
+            referralCountElement.textContent = `Referrals: ${referrals}`;
             balanceElement.textContent = 'NGN ****';
-            toggleIcon.classList.remove('fa-eye');
-            toggleIcon.classList.add('fa-eye-slash');
+        } else {
+            console.log('No user data found.');
         }
+    }).catch((error) => {
+        console.error('Error fetching user data:', error);
+    });
+}
+
+// Handle authentication state changes
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        fetchUserData(user);
+    } else {
+        console.log('No user is signed in.');
     }
+});
 
-    toggleIcon.addEventListener('click', toggleBalance);
+// Copy link to clipboard
+copyButton.addEventListener('click', () => {
+    affiliateLinkInput.select();
+    document.execCommand('copy');
+    alert('Affiliate link copied to clipboard!');
+});
 
-    // Function to handle withdrawal
-    function handleWithdraw(user) {
-        const userRef = ref(database, 'users/' + user.uid);
+// Share via social media
+telegramIcon.addEventListener('click', () => {
+    const url = encodeURIComponent(affiliateLinkInput.value);
+    window.open(`https://t.me/share/url?url=${url}`, '_blank');
+});
 
-        get(userRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                const userData = snapshot.val();
-                const referrals = userData.referrals || 1;
-                const balance = referrals * 500;
+whatsappIcon.addEventListener('click', () => {
+    const url = encodeURIComponent(affiliateLinkInput.value);
+    window.open(`https://wa.me/?text=${url}`, '_blank');
+});
 
-                if (balance > 0) {
-                    // Collect user's account details
-                    const recipientAccountNumber = prompt('Enter your bank account number:');
-                    const recipientBankCode = prompt('Enter your bank code:');
+instagramIcon.addEventListener('click', () => {
+    alert('Instagram sharing is not supported directly via URL. You can manually share on Instagram.');
+});
 
-                    // Send request to server to process withdrawal
-                    fetch('/withdraw', {
+// Function to toggle balance visibility
+function toggleBalance() {
+    if (balanceElement.textContent === 'NGN ****') {
+        balanceElement.textContent = `NGN ${currentBalance}`;
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    } else {
+        balanceElement.textContent = 'NGN ****';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    }
+}
+
+toggleIcon.addEventListener('click', toggleBalance);
+
+withdrawButton.addEventListener('click', async () => {
+    const accountNumber = window.prompt('Enter your bank account number:');
+    const bankCode = window.prompt('Enter your bank code:');
+
+    if (accountNumber && bankCode) {
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                try {
+                    const response = await fetch('https://api.paystack.co/transferrecipient', {
                         method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer sk_live_9a828cc76bd581cd5a304f67a2c1fb6f8e279084`
                         },
                         body: JSON.stringify({
-                            userId: user.uid,
-                            amount: balance,
-                            recipientAccountNumber,
-                            recipientBankCode
+                            type: 'nuban',
+                            name: 'Recipient Name',
+                            account_number: accountNumber,
+                            bank_code: bankCode,
+                            currency: 'NGN'
                         })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert(data.message);
-                            update(userRef, { referrals: 0 }).then(() => {
-                                referralCountElement.textContent = 'Referrals: 0';
-                                balanceElement.textContent = 'NGN 0';
-                            });
-                        } else {
-                            alert('Withdrawal failed. Please try again.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error initiating withdrawal:', error);
-                        alert('An error occurred while processing your withdrawal. Please try again later.');
                     });
-                } else {
-                    alert('No balance to withdraw.');
+
+                    const recipientData = await response.json();
+
+                    if (response.ok) {
+                        const recipientCode = recipientData.data.recipient_code;
+
+                        const transferResponse = await fetch('https://api.paystack.co/transfer', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer sk_live_9a828cc76bd581cd5a304f67a2c1fb6f8e279084`
+                            },
+                            body: JSON.stringify({
+                                source: 'balance',
+                                amount: currentBalance * 100,
+                                currency: 'NGN',
+                                recipient: recipientCode,
+                                reason: 'Withdrawal'
+                            })
+                        });
+
+                        const transferData = await transferResponse.json();
+
+                        if (transferResponse.ok) {
+                            alert('Withdrawal successful');
+                            await update(ref(database, 'users/' + user.uid), {
+                                referrals: 0
+                            });
+                            fetchUserData(user);
+                        } else {
+                            alert(`Withdrawal failed: ${transferData.message}`);
+                        }
+                    } else {
+                        alert(`Failed to create transfer recipient: ${recipientData.message}`);
+                    }
+                } catch (error) {
+                    console.error('Error initiating withdrawal:', error);
+                    alert('Error initiating withdrawal.');
                 }
             } else {
-                console.log('No user data found.');
+                alert('User is not signed in.');
             }
-        }).catch((error) => {
-            console.error('Error fetching user data:', error);
-            alert('An error occurred while processing your withdrawal. Please try again later.');
         });
+    } else {
+        alert('Bank account number and bank code are required.');
     }
+});
 
-    // Set up event listener for withdraw button
-    withdrawButton.addEventListener('click', () => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                handleWithdraw(user);
-            } else {
-                console.log('No user is signed in.');
-            }
-        });
-    });
-
-    // Fetch user data on auth state change
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            fetchUserData(user);
-        } else {
-            console.log('No user is signed in.');
-        }
-    });
   </script>
-  
-  <script src="https://js.paystack.co/v1/inline.js"></script>
+   <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="scriptone.js"></script>
     <script src="scripttwo.js"></script>
     <script src="scriptthree.js"></script>
     <script src="scriptfour.js"></script>
     <script src="scriptfive.js"></script>
     <script src="scriptsix.js"></script>
-    <script src="server.js"></script>
     <script src="withdraw.js"></script>
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>

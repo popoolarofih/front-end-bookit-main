@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Withdrawal Success</title>
+</head>
+<body>
+    <main style="margin: 0; padding: 0;">
+        <div>
+
+            <div style="padding: 208px 35px; text-align: center;">
+                <img src="../assets/affliate dashboard/tick.svg" alt="" style="margin-bottom: 24px;">
+                <div style="font-family: Inter;
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 32px;
+                letter-spacing: -0.4000000059604645px;
+                text-align: center;
+                ">Withdrawal Pin set successfully.</div>
+                <div style="font-family: Inter;
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 23px;
+                letter-spacing: -0.4000000059604645px;
+                text-align: center;
+                ">Now, you can withdraw your affiliate funds</div>
+            </div>
+            <button style="font-family: Inter;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 16.94px;
+            letter-spacing: -0.20000000298023224px;
+            text-align: center;
+            background-color: #022F8E;
+            padding: 12px 20px 12px 20px;
+            gap: 10px;
+            opacity: 0px;
+            color: #fff;
+            display: block;
+            margin: auto;
+            width: 40%;
+            margin-top: -50px;
+            ">Got it</button>
+        </div>
+        <div class="fixedContainer d-block d-md-block d-lg-none">
+  <div class="nav_bottom mobile">
+    <a href="#">
+      <div class="bnav">
+        <img src="../assets/images/home_bnav.svg" alt="" />
+        <p>Home</p>
+      </div>
+    </a>
+    <a href="#">
+      <div class="bnav">
+        <img src="../assets/images/dashboard_bnav.svg" alt="" />
+        <p>Dashboard</p>
+      </div>
+    </a>
+    <a href="#">
+      <div class="bnav">
+        <img src="../assets/images/chat_bnav.svg" alt="" />
+        <p>Chat</p>
+      </div>
+    </a>
+    <a href="#">
+      <div class="bnav">
+        <img src="../assets/images/affiliate_bnav.svg" alt="" />
+        <p>Affiliate</p>
+      </div>
+    </a>
+  </div>
+</div>
+    </main>
+<script>
+
+        // start
+
+        const start = () => {
+            setTimeout(function() {
+                confetti.start()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+
+        //  Stop
+
+        const stop = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+
+        start();
+        stop();
+    </script>
+<script src="confetti.js"></script>
+    
+</body>
+</html>

@@ -1,62 +1,54 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
-
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Replace with your actual Paystack secret key
-const PAYSTACK_SECRET_KEY = 'pk_live_ab995f451253aaca1a9c05a5698e4637326eb0df';
 
 app.use(bodyParser.json());
 
-// Endpoint to handle withdrawal requests
-app.post('/withdraw', async (req, res) => {
-    const { userId, amount, recipientAccountNumber, recipientBankCode } = req.body;
+// Replace with your Paystack secret key
+const PAYSTACK_SECRET_KEY = 'sk_test_your_secret_key';
 
+// Endpoint to handle withdrawal
+app.post('/withdraw', async (req, res) => {
+    const { userId, amount, bankAccount } = req.body;
     try {
-        // Step 1: Create a transfer recipient
+        // 1. Create a transfer recipient
         const recipientResponse = await axios.post('https://api.paystack.co/transferrecipient', {
             type: 'nuban',
-            name: 'User Name', // Replace with the actual user's name
-            account_number: recipientAccountNumber,
-            bank_code: recipientBankCode,
+            name: 'Recipient Name',
+            account_number: bankAccount.number,
+            bank_code: bankAccount.bankCode,
             currency: 'NGN'
         }, {
             headers: {
-                Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`
+                Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`,
+                'Content-Type': 'application/json'
             }
         });
 
         const recipientCode = recipientResponse.data.data.recipient_code;
 
-        // Step 2: Initiate the transfer
+        // 2. Initiate the transfer
         const transferResponse = await axios.post('https://api.paystack.co/transfer', {
             source: 'balance',
             amount: amount * 100, // Convert to kobo
+            currency: 'NGN',
             recipient: recipientCode,
-            reason: 'Affiliate earnings withdrawal'
+            reason: 'Withdrawal'
         }, {
             headers: {
-                Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`
+                Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`,
+                'Content-Type': 'application/json'
             }
         });
 
-        res.json({
-            success: true,
-            message: 'Withdrawal successful',
-            data: transferResponse.data
-        });
+        res.json({ message: 'Transfer initiated successfully', data: transferResponse.data });
     } catch (error) {
-        console.error('Error initiating withdrawal:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Withdrawal failed. Please try again later.',
-            error: error.message
-        });
+        res.status(500).json({ message: 'Error processing transfer', error: error.message });
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
 });
