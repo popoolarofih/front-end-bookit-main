@@ -408,7 +408,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/helpers.min.js" integrity="sha512-JG3S/EICkp8Lx9YhtIpzAVJ55WGnxT3T6bfiXYbjPRUoN9yu+ZM+wVLDsI/L2BWRiKjw/67d+/APw/CDn+Lm0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./chart.js"></script>
     <script type="module">
-     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
 
@@ -528,7 +528,7 @@ withdrawButton.addEventListener('click', async () => {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'Authorization': `Bearer sk_live_9a828cc76bd581cd5a304f67a2c1fb6f8e279084`
+                            'Authorization': `Bearer YOUR_PAYSTACK_SECRET_KEY`
                         },
                         body: JSON.stringify({
                             type: 'nuban',
@@ -548,7 +548,7 @@ withdrawButton.addEventListener('click', async () => {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
-                                'Authorization': `Bearer sk_live_9a828cc76bd581cd5a304f67a2c1fb6f8e279084`
+                                'Authorization': `Bearer YOUR_PAYSTACK_SECRET_KEY`
                             },
                             body: JSON.stringify({
                                 source: 'balance',
@@ -586,7 +586,15 @@ withdrawButton.addEventListener('click', async () => {
     }
 });
 
-  </script>
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        fetchUserData(user);
+    } else {
+        console.log('No user is signed in.');
+    }
+});
+
+    </script>
    <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="scriptone.js"></script>
     <script src="scripttwo.js"></script>
