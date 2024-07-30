@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="../style.css">
     <title>Dashboard</title>
 </head>
+<style>
+    .payout-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+</style>
 <body>
     <main style="margin: 0; padding: 0;">
         <div class="">
@@ -15,92 +25,230 @@
         farthest-corner circle at 100% 0%,
         #00ffb240 0%, 6%, #00fbba40 0% 0%, 9%, #00e0ff40 0% 0%, 20%, #00b7ff40 0% 0%, 34%, #004fff00 0% 0%
       )">
-
-        <div class="aflt-section">
-            <div class="affliate-header">Booking Earnings</div>
-        <p class="aflt-subheader">
-          A breakdown of your earnings through commission
-        </p>
-
-        </div>
-      
-        </div>
-
-
-
-        <div
-        class="aflt-search-flex"
-        style="
-          display: flex;
-          gap: 20px;
-          align-items: center;
-          /* padding:0 24px; */
-          margin: 0 24px;
-          margin-top: -10px;
-          background-color: #fff;
-          border-radius: 12px;
-          box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.2);
-          
-        "
-      >
-        <div class="aflt-input" style="display: flex; position: relative;">
-            <img src="../assets/affliate dashboard/search.svg" alt="" style="position: absolute; left: 6px; top: 10px;"/>
-          <input
-            type="text"
-            class="aflt-search"
-            placeholder="Search for payments..."
-          />
-        </div>
-        <div style="display: flex; gap: 20px; align-items: center;">
-            <span style="font-size: 14px; font-weight: 600;">Filter</span>
-          <img src="../assets/affliate dashboard/filter.gif" alt="" width="32px" height="32px"/>
-        </div>
-      </div>
-
-            <div class="aflt-payouts aflt-section" style="display: flex; flex-direction: column; gap: 20px;">
-                <div class="aflt-payout" style="padding: 8px 0px;">
-                    <div class="aflt-flex" style="display: flex; justify-content: space-between;">
-                        <span class="aflt-inheader">KUDA MFB</span>
-                        <span class="aflt-red">- NGN 25,000</span>
-                    </div>
-                    <div class="aflt-flex" style="display: flex; justify-content: space-between; color: rgba(0, 0, 0, 0.7);">
-                        <span class="aflt-accdate">2014183652</span>
-                        <span class="aflt-accdate">3 June,2024 at 9:01AM</span>
-                    </div>
+                <div class="aflt-section">
+                    <div class="affliate-header">Booking Earnings</div>
+                    <p class="aflt-subheader">
+                        A breakdown of your earnings through commission
+                    </p>
                 </div>
-                <div class="aflt-payout" style="padding: 8px 0px;">
-                    <div class="aflt-flex" style="display: flex; justify-content: space-between;">
-                        <span class="aflt-inheader">KUDA MFB</span>
-                        <span class="aflt-red">- NGN 25,000</span>
-                    </div>
-                    <div class="aflt-flex" style="display: flex; justify-content: space-between; color: rgba(0, 0, 0, 0.7);">
-                        <span class="aflt-accdate">2014183652</span>
-                        <span class="aflt-accdate">3 June,2024 at 9:01AM</span>
-                    </div>
-                </div>
-                <div class="aflt-payout" style="padding: 8px 0px;">
-                    <div class="aflt-flex" style="display: flex; justify-content: space-between;">
-                        <span class="aflt-inheader">KUDA MFB</span>
-                        <span class="aflt-red">- NGN 25,000</span>
-                    </div>
-                    <div class="aflt-flex" style="display: flex; justify-content: space-between; color: rgba(0, 0, 0, 0.7);">
-                        <span class="aflt-accdate">2014183652</span>
-                        <span class="aflt-accdate">3 June,2024 at 9:01AM</span>
-                    </div>
-                </div>
-                <div class="aflt-payout" style="padding: 8px 0px;">
-                    <div class="aflt-flex" style="display: flex; justify-content: space-between;">
-                        <span class="aflt-inheader">KUDA MFB</span>
-                        <span class="aflt-red">- NGN 25,000</span>
-                    </div>
-                    <div class="aflt-flex" style="display: flex; justify-content: space-between; color: rgba(0, 0, 0, 0.7);">
-                        <span class="aflt-accdate">2014183652</span>
-                        <span class="aflt-accdate">3 June,2024 at 9:01AM</span>
-                    </div>
-                </div>
+            </div>
 
+            <div class="aflt-search-flex"
+                style="display: flex; gap: 20px; align-items: center; margin: 0 24px; margin-top: -10px; background-color: #fff; border-radius: 12px; box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.2);">
+                <div class="aflt-input" style="display: flex; position: relative;">
+                    <img src="../assets/affliate dashboard/search.svg" alt="" style="position: absolute; left: 6px; top: 10px;"/>
+                    <input type="text" class="aflt-search" placeholder="Search for payments..."/>
+                </div>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <span style="font-size: 14px; font-weight: 600;">Filter</span>
+                    <img src="../assets/affliate dashboard/filter.gif" alt="" width="32px" height="32px"/>
+                </div>
+            </div>
+
+            <div class="aflt-payouts aflt-section" id="payoutsContainer" style="display: flex; flex-direction: column; gap: 20px;">
+                <h2>Nothing yet</h2>
             </div>
         </div>
     </main>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+        import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAWhVX5KwezdLXUTV898Y1KKbsTfNOU9CU",
+            authDomain: "bookit-e3556.firebaseapp.com",
+            databaseURL: "https://bookit-e3556-default-rtdb.firebaseio.com",
+            projectId: "bookit-e3556",
+            storageBucket: "bookit-e3556.appspot.com",
+            messagingSenderId: "624655882811",
+            appId: "1:624655882811:web:4777086ca8f8e66e495a1e",
+            measurementId: "G-C5N1K2FH2Y"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase(app);
+    
+        // Reference to the HTML elements
+        const userNameElement = document.getElementById('userName');
+        const userPhoneElement = document.getElementById('userPhone');
+        const affiliateLinkInput = document.getElementById('affiliateLink');
+        const copyButton = document.getElementById('copyButton');
+        const telegramIcon = document.getElementById('telegram');
+        const whatsappIcon = document.getElementById('whatsapp');
+        const instagramIcon = document.getElementById('instagram');
+        const referralCountElement = document.getElementById('referralCount');
+        const balanceElement = document.getElementById('balance');
+        const withdrawButton = document.getElementById('withdrawButton');
+        const toggleIcon = document.getElementById('toggle-icon');
+        const payoutsContainer = document.getElementById('payouts');
+    
+        let currentBalance = 0;
+    
+        // Initialize Chart.js
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const chartData = {
+            labels: [],
+            datasets: [{
+                label: 'Referrals',
+                data: [],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+    
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+        // Function to update the chart with referral data
+        function updateChart(referralData) {
+            myChart.data.labels = referralData.map(item => item.date);
+            myChart.data.datasets[0].data = referralData.map(item => item.count);
+            myChart.update();
+        }
+    
+        // Function to fetch user data
+        function fetchUserData(user) {
+            const userRef = ref(database, 'users/' + user.uid);
+    
+            get(userRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    const userName = `${userData.firstName} ${userData.lastName}`;
+                    const userPhone = userData.phone;
+                    const username = `${userData.firstName}${userData.lastName}`;
+                    const affiliateLink = `https://front-end-bookit-main.vercel.app/affiliate.html?username=${username}`;
+                    const referrals = userData.referrals || 2000;
+                    currentBalance = referrals * 500;
+    
+                    userNameElement.textContent = `${userName}`;
+                    userPhoneElement.textContent = `${userPhone}`;
+                    affiliateLinkInput.value = affiliateLink;
+                    referralCountElement.textContent = `Referrals: ${referrals}`;
+                    balanceElement.textContent = 'NGN ****';
+    
+                    // Example referral data - This would come from your server or another data source
+                    const referralData = [
+                        { date: '05/24', count: 5 },
+                        { date: '06/24', count: 10 },
+                        { date: '07/24', count: 15 },
+                        { date: '08/24', count: 20 },
+                        { date: '09/24', count: 25 },
+                        { date: '10/24', count: 30 }
+                    ];
+    
+                    // Update the chart with the example data
+                    updateChart(referralData);
+    
+                } else {
+                    console.log('No user data found.');
+                }
+            }).catch((error) => {
+                console.error('Error fetching user data:', error);
+            });
+        }
+    
+        // Handle authentication state changes
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                fetchUserData(user);
+            } else {
+                console.log('No user is signed in.');
+            }
+        });
+    
+        // Copy link to clipboard
+        copyButton.addEventListener('click', () => {
+            affiliateLinkInput.select();
+            document.execCommand('copy');
+            alert('Affiliate link copied to clipboard!');
+        });
+    
+        // Share via social media
+        telegramIcon.addEventListener('click', () => {
+            const url = encodeURIComponent(affiliateLinkInput.value);
+            window.open(`https://t.me/share/url?url=${url}`, '_blank');
+        });
+    
+        whatsappIcon.addEventListener('click', () => {
+            const url = encodeURIComponent(affiliateLinkInput.value);
+            window.open(`https://wa.me/?text=${url}`, '_blank');
+        });
+    
+        instagramIcon.addEventListener('click', () => {
+            alert('Instagram sharing is not supported directly via URL. You can manually share on Instagram.');
+        });
+    
+        // Function to toggle balance visibility
+        function toggleBalance() {
+            if (balanceElement.textContent === 'NGN ****') {
+                balanceElement.textContent = `NGN ${currentBalance}`;
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                balanceElement.textContent = 'NGN ****';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    
+        toggleIcon.addEventListener('click', toggleBalance);
+    
+        // Withdraw functionality
+        withdrawButton.addEventListener('click', () => {
+            // Prompt the user for bank details
+            const bankName = prompt("Enter your bank name:");
+            const bankNumber = prompt("Enter your bank number:");
+            const amount = prompt("Enter the amount to withdraw:");
+    
+            // Check if the user has enough balance
+            if (amount <= currentBalance) {
+                const newBalance = currentBalance - amount;
+                currentBalance = newBalance;
+    
+                // Update the database with the new balance
+                const user = auth.currentUser;
+                const userRef = ref(database, 'users/' + user.uid);
+    
+                update(userRef, {
+                    referrals: newBalance / 500
+                }).then(() => {
+                    alert('Withdrawal successful! New balance: NGN ' + newBalance);
+                    balanceElement.textContent = `NGN ${newBalance}`;
+    
+                    // Add the payout details to the HTML
+                    const date = new Date().toLocaleDateString();
+                    const payoutDetails = `
+                        <div class="payout-item">
+                            <p>Bank Name: ${bankName}</p>
+                            <p>Bank Number: ${bankNumber}</p>
+                            <p>Date: ${date}</p>
+                            <p>Amount: NGN ${amount}</p>
+                        </div>
+                    `;
+                    payoutsContainer.insertAdjacentHTML('beforeend', payoutDetails);
+                }).catch((error) => {
+                    console.error('Error updating balance:', error);
+                });
+            } else {
+                alert('Insufficient balance for withdrawal.');
+            }
+        });
+    </script>
+    
 </body>
 </html>
